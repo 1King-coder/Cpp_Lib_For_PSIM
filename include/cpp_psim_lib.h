@@ -2,11 +2,11 @@
 #define _CPP_PSIM_LIB_LIBRARY_H
 
 
-#if BUILDING_DLL
-#define DLLIMPORT __declspec(dllexport)
-#else
+// #if BUILDING_DLL
+#define DLLEXPORT __declspec(dllexport)
+// #else
 #define DLLIMPORT __declspec(dllimport)
-#endif
+// #endif
 #include <cstdint>
 extern "C" {
     void calcOut(double *in, double *out);
