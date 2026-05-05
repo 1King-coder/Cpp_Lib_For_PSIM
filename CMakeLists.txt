@@ -6,4 +6,6 @@ project(C_FOR_SIM_LIB)
 
 set(CMAKE_CXX_STANDARD 20)
 
-add_library(C_FOR_SIM_LIB SHARED source/cpp_psim_lib.cpp)
+add_library(C_FOR_SIM_LIB SHARED source/cpp_psim_lib.cpp
+        include/Serial_utils.h
+        source/Serial_utils.cpp)
