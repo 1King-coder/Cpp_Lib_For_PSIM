@@ -7,7 +7,6 @@
 // #else
 #define DLLIMPORT __declspec(dllimport)
 // #endif
-#include <cstdint>
 extern "C" {
     void calcOut(double *in, double *out);
 

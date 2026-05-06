@@ -3,6 +3,7 @@
 #include <windows.h>
 #include "../include/Serial_utils.h"
 
+#define COM_PORT "\\\\.\\COM13"
 
 extern "C" {
 
@@ -11,9 +12,9 @@ extern "C" {
          int nParameterCount, const char ** pszParameters,
          int *pnError, char * szErrorMsg,
          void ** reserved_UserData, int reserved_ThreadIndex, void * reserved_AppPtr) {
-        openSerial("COM1");
+        openSerial(COM_PORT);
 
-        int bufSize = 1;
+        int bufSize = 4;
 
         char buf[bufSize];
         int index = 0;
@@ -59,10 +60,7 @@ extern "C" {
 
     DLLEXPORT void SimulationEnd(const char *szId, void ** reserved_UserData, int reserved_ThreadIndex, void * reserved_AppPtr)
     {
-
-
-    closeSerial();
-
+        closeSerial();
     }
 
 
