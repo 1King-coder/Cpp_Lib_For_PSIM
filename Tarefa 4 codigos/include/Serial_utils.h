@@ -5,7 +5,7 @@
 #ifndef C_FOR_SIM_LIB_SERIAL_UTILS_H
 #define C_FOR_SIM_LIB_SERIAL_UTILS_H
 int openSerial(const char *portName);
-void writeSerial(void const *data, int dataSize);
-int readSerial(void *buffer, int bufSize);
+void writeSerial(const char *data);
+int readSerial(char *buffer, int bufSize);
 void closeSerial();
 #endif //C_FOR_SIM_LIB_SERIAL_UTILS_H

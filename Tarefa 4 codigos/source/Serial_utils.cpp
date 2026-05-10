@@ -26,20 +26,20 @@ int openSerial(const char *portName) {
     timeouts.ReadIntervalTimeout = MAXDWORD;
     timeouts.ReadTotalTimeoutConstant = 0;
     timeouts.ReadTotalTimeoutMultiplier = 0;
-    timeouts.WriteTotalTimeoutConstant = 0;
-    timeouts.WriteTotalTimeoutMultiplier = 0;
+    timeouts.WriteTotalTimeoutConstant = 50;
+    timeouts.WriteTotalTimeoutMultiplier = 10;
 
     if (!SetCommTimeouts(hSerial, &timeouts)) return 0;
     return 1;
 }
 
-void writeSerial(const void *data, int dataSize) {
+void writeSerial(const char *data) {
     if (hSerial == INVALID_HANDLE_VALUE) return;
     DWORD bytesWritten;
-    WriteFile(hSerial, data, dataSize, &bytesWritten, nullptr);
+    WriteFile(hSerial, data, strlen(data), &bytesWritten, nullptr);
 }
 
-int readSerial(void *buffer, int bufSize) {
+int readSerial(char *buffer, int bufSize) {
     if (hSerial == INVALID_HANDLE_VALUE) return 0;
     DWORD bytesRead;
     if (ReadFile(hSerial, buffer, bufSize, &bytesRead, nullptr))

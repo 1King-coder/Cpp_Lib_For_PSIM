@@ -3,7 +3,7 @@
 #include <windows.h>
 #include "../include/Serial_utils.h"
 
-#define COM_PORT "\\\\.\\COM13"
+#define COM_PORT "\\\\.\\COM4"
 
 extern "C" {
 
@@ -12,34 +12,8 @@ extern "C" {
          int nParameterCount, const char ** pszParameters,
          int *pnError, char * szErrorMsg,
          void ** reserved_UserData, int reserved_ThreadIndex, void * reserved_AppPtr) {
-        openSerial(COM_PORT);
 
-        int bufSize = 4;
-
-        char buf[bufSize];
-        int index = 0;
-
-        while (1) {
-            char tempChar;
-            int n = readSerial(&tempChar, 1);
-            if (n > 0) {
-                if (tempChar == '\n' || tempChar == '\r') {
-                    if (index > 0) {
-                        break;
-                    }
-                } else if (index < sizeof(buf)) {
-                    char echoChar[2] = {tempChar, '\0'};
-                    writeSerial(echoChar);
-                    buf[index++] = tempChar;
-
-                }
-            } else {
-                Sleep(10);
-            }
-        }
-        writeSerial("\nReceived: ");
-        writeSerial(buf);
-        writeSerial("\n");
+        openSerial(COM_PORT); // Connecta na porta COM do DSP
     }
 
     DLLEXPORT void SimulationStep(
@@ -54,6 +28,15 @@ extern "C" {
             void * pAppPtr
     ) {
         out[0] = pow(in[0], 2);
+        float x, y;
+
+        x = (float) in[0];
+
+        writeSerial(&x, sizeof(x));
+        readSerial(&y, sizeof(y));
+
+        out[0] = (double) y;
+
         *pnError = 0; //Success
 
     }
