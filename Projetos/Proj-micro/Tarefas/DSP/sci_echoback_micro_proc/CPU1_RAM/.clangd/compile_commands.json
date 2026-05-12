@@ -1,0 +1,17 @@
+[
+   {
+      "directory" : "F:/Dev/Cpp_Lib_For_PSIM/Projetos/Proj-micro/Tarefas/DSP/sci_echoback_micro_proc/CPU1_RAM",
+      "command"   : "clang++ -I\"F:/Dev/Cpp_Lib_For_PSIM/Projetos/Proj-micro/Tarefas/DSP/sci_echoback_micro_proc\" -I\"F:/Dev/Cpp_Lib_For_PSIM/Projetos/Proj-micro/Tarefas/DSP/sci_echoback_micro_proc/device\" -I\"C:/ti/C2000Ware_26_00_00_00/driverlib/f2837xd/driverlib/\" -I\"C:/ti/ccs2051/ccs/tools/compiler/ti-cgt-c2000_25.11.0.LTS/include\" -DDEBUG -DCPU1 -I\"F:/Dev/Cpp_Lib_For_PSIM/Projetos/Proj-micro/Tarefas/DSP/sci_echoback_micro_proc/CPU1_RAM/syscfg\"",
+      "file"      : "F:/Dev/Cpp_Lib_For_PSIM/Projetos/Proj-micro/Tarefas/DSP/sci_echoback_micro_proc/device/F2837xD_CodeStartBranch.asm"
+   },
+   {
+      "directory" : "F:/Dev/Cpp_Lib_For_PSIM/Projetos/Proj-micro/Tarefas/DSP/sci_echoback_micro_proc/CPU1_RAM",
+      "command"   : "clang++ -I\"F:/Dev/Cpp_Lib_For_PSIM/Projetos/Proj-micro/Tarefas/DSP/sci_echoback_micro_proc\" -I\"F:/Dev/Cpp_Lib_For_PSIM/Projetos/Proj-micro/Tarefas/DSP/sci_echoback_micro_proc/device\" -I\"C:/ti/C2000Ware_26_00_00_00/driverlib/f2837xd/driverlib/\" -I\"C:/ti/ccs2051/ccs/tools/compiler/ti-cgt-c2000_25.11.0.LTS/include\" -DDEBUG -DCPU1 -I\"F:/Dev/Cpp_Lib_For_PSIM/Projetos/Proj-micro/Tarefas/DSP/sci_echoback_micro_proc/CPU1_RAM/syscfg\" -xc",
+      "file"      : "F:/Dev/Cpp_Lib_For_PSIM/Projetos/Proj-micro/Tarefas/DSP/sci_echoback_micro_proc/device/device.c"
+   },
+   {
+      "directory" : "F:/Dev/Cpp_Lib_For_PSIM/Projetos/Proj-micro/Tarefas/DSP/sci_echoback_micro_proc/CPU1_RAM",
+      "command"   : "clang++ -I\"F:/Dev/Cpp_Lib_For_PSIM/Projetos/Proj-micro/Tarefas/DSP/sci_echoback_micro_proc\" -I\"F:/Dev/Cpp_Lib_For_PSIM/Projetos/Proj-micro/Tarefas/DSP/sci_echoback_micro_proc/device\" -I\"C:/ti/C2000Ware_26_00_00_00/driverlib/f2837xd/driverlib/\" -I\"C:/ti/ccs2051/ccs/tools/compiler/ti-cgt-c2000_25.11.0.LTS/include\" -DDEBUG -DCPU1 -I\"F:/Dev/Cpp_Lib_For_PSIM/Projetos/Proj-micro/Tarefas/DSP/sci_echoback_micro_proc/CPU1_RAM/syscfg\" -xc",
+      "file"      : "F:/Dev/Cpp_Lib_For_PSIM/Projetos/Proj-micro/Tarefas/DSP/sci_echoback_micro_proc/sci_ex3_echoback.c"
+   }
+]

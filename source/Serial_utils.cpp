@@ -6,8 +6,8 @@
 HANDLE hSerial = INVALID_HANDLE_VALUE;
 
 int openSerial(const char *portName) {
-    hSerial = CreateFileA(portName, GENERIC_READ | GENERIC_WRITE, 0, nullptr,
-                          OPEN_EXISTING, FILE_ATTRIBUTE_NORMAL, nullptr);
+    hSerial = CreateFileA(portName, GENERIC_READ | GENERIC_WRITE, 0, NULL,
+                          OPEN_EXISTING, FILE_ATTRIBUTE_NORMAL, NULL);
     if (hSerial == INVALID_HANDLE_VALUE) {
         return 0;
     }
@@ -16,7 +16,7 @@ int openSerial(const char *portName) {
     dcbSerialParams.DCBlength = sizeof(dcbSerialParams);
     if (!GetCommState(hSerial, &dcbSerialParams)) return 0;
 
-    dcbSerialParams.BaudRate = CBR_9600;
+    dcbSerialParams.BaudRate =  CBR_9600;
     dcbSerialParams.ByteSize = 8;
     dcbSerialParams.StopBits = ONESTOPBIT;
     dcbSerialParams.Parity   = NOPARITY;
@@ -36,13 +36,13 @@ int openSerial(const char *portName) {
 void writeSerial(const void *data, int dataSize) {
     if (hSerial == INVALID_HANDLE_VALUE) return;
     DWORD bytesWritten;
-    WriteFile(hSerial, data, dataSize, &bytesWritten, nullptr);
+    WriteFile(hSerial, data, dataSize, &bytesWritten, NULL);
 }
 
 int readSerial(void *buffer, int bufSize) {
     if (hSerial == INVALID_HANDLE_VALUE) return 0;
     DWORD bytesRead;
-    if (ReadFile(hSerial, buffer, bufSize, &bytesRead, nullptr))
+    if (ReadFile(hSerial, buffer, bufSize, &bytesRead, NULL))
         return bytesRead;
     return 0;
 }

@@ -3,9 +3,16 @@
 #include <windows.h>
 #include "../include/Serial_utils.h"
 
-#define COM_PORT "\\\\.\\COM4"
+#define COM_PORT "\\\\.\\COM5"
+#include <stdint.h>
 
 extern "C" {
+
+    struct SimData {
+        float v;
+        float i;
+        float p;
+    };
 
     DLLEXPORT void SimulationBegin(
         const char *szId, int nInputCount, int nOutputCount,
@@ -27,15 +34,30 @@ extern "C" {
             int nThreadIndex,
             void * pAppPtr
     ) {
-        out[0] = pow(in[0], 2);
-        float x, y;
+        SimData x, y;
 
-        x = (float) in[0];
+        x.v = (float) in[0];
+        x.i = (float) in[1];
 
         writeSerial(&x, sizeof(x));
-        readSerial(&y, sizeof(y));
 
-        out[0] = (double) y;
+        int expectedBytes = sizeof(y);
+        int totalRead = 0;
+
+        uint8_t* rxPtr = (uint8_t*) &y;
+
+        while (totalRead < expectedBytes) {
+            int n = readSerial(rxPtr + totalRead, expectedBytes - totalRead);
+            if (n > 0) {
+                totalRead += n;
+            } else {
+                Sleep(1);
+            }
+
+
+        }
+
+        out[0] = (double) y.p;
 
         *pnError = 0; //Success
 

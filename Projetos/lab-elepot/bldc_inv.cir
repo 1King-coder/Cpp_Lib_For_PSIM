@@ -1,0 +1,68 @@
+* Netlist F:\Dev\Cpp_Lib_For_PSIM\Projetos\lab-elepot\bldc_inv.psimsch *
+
+.include "C:\Altair\Altair_PSIM_2026\SPICElib\PSIM_SPICE.sub"
+
+.tran 1.0e-006 1.0e-003 0  uic
+VI_R2 4 541 0
+R_R2 541 0 5.184
+
+BV_ON8 3 0 V= IF( (V(5)>0.1), 1, 0 )
+VI_ISEN10 2 4 0
+BV_ISEN10 6 0 V= 1*i(VI_ISEN10)
+BV_VSEN3 7 0 V = 1*V(4,0)
+GI_PI2 0 591 8 0 0.3
+RI_PI2 591 0 1e6
+CI_PI2 591 0 1
+BVPI_PI2 9 0 V= 6*V(8)+V(591)
+V_C1 10 0 DC 4
+BV_SUM26 8 0 V= 1*V(10) + (-1)*V(6)
+BV_COMP24 5 0 V= IF( (V(11)>V(12)), 1 , 0 )
+
+
+
+
+
+V_VDC44 1 0 DC 12
+V_VSAW2 12 0 PULSE( 0 1 0 9.99E-05 1E-07 0 0.0001 )
+BV_P11 11 0 V= 0.08333333333333333*V(9)
+VDF_Boost_D2 13 501 0
+SD_Boost_D2 501 2 501 2 SDM_Boost_D2 off
+.model SDM_Boost_D2 SW ( ron=10u roff=10meg vt=0 vh=0 )
+E_Boost_D2 V_Boost_D2 0 13 2 1
+
+VI_Boost_Q2 13 511 0
+VDfwd_Boost_Q2 0 512 3
+SM_Boost_Q2 511 0 3 0 SMM_Boost_Q2 off
+SMD_Boost_Q2 512 511 512 511 SMDM_Boost_Q2
+.model SMM_Boost_Q2 SW( Ron=0.0048 Roff=10meg Vt=0.5 Vh=0 )
+.model SMDM_Boost_Q2 SW( Ron=0.001 Roff=10meg Vt=0 Vh=0 )
+E_Boost_Q2 V_Boost_Q2 0 13 0 1
+
+L_Boost_L4 1 13 9.999999999999999E-05 IC= 0
+C_Boost_C2 2 0 6.2191E-05 IC= 0
+.save i(VI_R2)
+.save V(2)
+.save V(6)
+.save V(11)
+.save V(12)
+.save V(5)
+.save V(9)
+.save i(VDF_Boost_D2)
+.SAVE V(V_Boost_D2)
+.save i(VI_Boost_Q2)
+.SAVE V(V_Boost_Q2)
+
+* Matching PSIM probes to SPICE probes *
+* I(R2) 	i(VI_R2) *
+* V(Vo_boost) 	V(2) *
+* V(Io_boost) 	V(6) *
+* V(Pi) 	V(11) *
+* V(carrier) 	V(12) *
+* V(duty) 	V(5) *
+* V(Vin) 	V(9) *
+* I(D2) 	i(VDF_Boost_D2) *
+* V(Boost_D2) 	V(V_Boost_D2) *
+* I(Boost_Q2) 	i(VI_Boost_Q2) *
+* V(Boost_Q2) 	V(V_Boost_Q2) *
+
+.end
