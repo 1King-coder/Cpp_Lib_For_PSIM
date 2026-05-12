@@ -1,20 +1,20 @@
 # FIXED
 
 sci_ex3_echoback.obj: ../sci_ex3_echoback.c
-sci_ex3_echoback.obj: F:/Dev/Cpp_Lib_For_PSIM/Projetos/Proj-micro/Tarefas/DSP/sci_echoback_micro_proc/device/driverlib.h
+sci_ex3_echoback.obj: C:/dev/C-FOR-SIM-LIB/Projetos/Proj-micro/Tarefas/DSP/sci_echoback_micro_proc/device/driverlib.h
 sci_ex3_echoback.obj: C:/ti/C2000Ware_26_00_00_00/driverlib/f2837xd/driverlib/inc/hw_memmap.h
 sci_ex3_echoback.obj: C:/ti/C2000Ware_26_00_00_00/driverlib/f2837xd/driverlib/adc.h
-sci_ex3_echoback.obj: C:/ti/ccs2051/ccs/tools/compiler/ti-cgt-c2000_25.11.0.LTS/include/stdbool.h
-sci_ex3_echoback.obj: C:/ti/ccs2051/ccs/tools/compiler/ti-cgt-c2000_25.11.0.LTS/include/_ti_config.h
-sci_ex3_echoback.obj: C:/ti/ccs2051/ccs/tools/compiler/ti-cgt-c2000_25.11.0.LTS/include/linkage.h
-sci_ex3_echoback.obj: C:/ti/ccs2051/ccs/tools/compiler/ti-cgt-c2000_25.11.0.LTS/include/stdint.h
-sci_ex3_echoback.obj: C:/ti/ccs2051/ccs/tools/compiler/ti-cgt-c2000_25.11.0.LTS/include/_stdint40.h
-sci_ex3_echoback.obj: C:/ti/ccs2051/ccs/tools/compiler/ti-cgt-c2000_25.11.0.LTS/include/sys/stdint.h
-sci_ex3_echoback.obj: C:/ti/ccs2051/ccs/tools/compiler/ti-cgt-c2000_25.11.0.LTS/include/sys/cdefs.h
-sci_ex3_echoback.obj: C:/ti/ccs2051/ccs/tools/compiler/ti-cgt-c2000_25.11.0.LTS/include/sys/_types.h
-sci_ex3_echoback.obj: C:/ti/ccs2051/ccs/tools/compiler/ti-cgt-c2000_25.11.0.LTS/include/machine/_types.h
-sci_ex3_echoback.obj: C:/ti/ccs2051/ccs/tools/compiler/ti-cgt-c2000_25.11.0.LTS/include/machine/_stdint.h
-sci_ex3_echoback.obj: C:/ti/ccs2051/ccs/tools/compiler/ti-cgt-c2000_25.11.0.LTS/include/sys/_stdint.h
+sci_ex3_echoback.obj: C:/ti/ccs2050/ccs/tools/compiler/ti-cgt-c2000_25.11.0.LTS/include/stdbool.h
+sci_ex3_echoback.obj: C:/ti/ccs2050/ccs/tools/compiler/ti-cgt-c2000_25.11.0.LTS/include/_ti_config.h
+sci_ex3_echoback.obj: C:/ti/ccs2050/ccs/tools/compiler/ti-cgt-c2000_25.11.0.LTS/include/linkage.h
+sci_ex3_echoback.obj: C:/ti/ccs2050/ccs/tools/compiler/ti-cgt-c2000_25.11.0.LTS/include/stdint.h
+sci_ex3_echoback.obj: C:/ti/ccs2050/ccs/tools/compiler/ti-cgt-c2000_25.11.0.LTS/include/_stdint40.h
+sci_ex3_echoback.obj: C:/ti/ccs2050/ccs/tools/compiler/ti-cgt-c2000_25.11.0.LTS/include/sys/stdint.h
+sci_ex3_echoback.obj: C:/ti/ccs2050/ccs/tools/compiler/ti-cgt-c2000_25.11.0.LTS/include/sys/cdefs.h
+sci_ex3_echoback.obj: C:/ti/ccs2050/ccs/tools/compiler/ti-cgt-c2000_25.11.0.LTS/include/sys/_types.h
+sci_ex3_echoback.obj: C:/ti/ccs2050/ccs/tools/compiler/ti-cgt-c2000_25.11.0.LTS/include/machine/_types.h
+sci_ex3_echoback.obj: C:/ti/ccs2050/ccs/tools/compiler/ti-cgt-c2000_25.11.0.LTS/include/machine/_stdint.h
+sci_ex3_echoback.obj: C:/ti/ccs2050/ccs/tools/compiler/ti-cgt-c2000_25.11.0.LTS/include/sys/_stdint.h
 sci_ex3_echoback.obj: C:/ti/C2000Ware_26_00_00_00/driverlib/f2837xd/driverlib/inc/hw_adc.h
 sci_ex3_echoback.obj: C:/ti/C2000Ware_26_00_00_00/driverlib/f2837xd/driverlib/inc/hw_sysctl.h
 sci_ex3_echoback.obj: C:/ti/C2000Ware_26_00_00_00/driverlib/f2837xd/driverlib/inc/hw_types.h
@@ -87,37 +87,37 @@ sci_ex3_echoback.obj: C:/ti/C2000Ware_26_00_00_00/driverlib/f2837xd/driverlib/up
 sci_ex3_echoback.obj: C:/ti/C2000Ware_26_00_00_00/driverlib/f2837xd/driverlib/inc/hw_upp.h
 sci_ex3_echoback.obj: C:/ti/C2000Ware_26_00_00_00/driverlib/f2837xd/driverlib/version.h
 sci_ex3_echoback.obj: C:/ti/C2000Ware_26_00_00_00/driverlib/f2837xd/driverlib/driver_inclusive_terminology_mapping.h
-sci_ex3_echoback.obj: F:/Dev/Cpp_Lib_For_PSIM/Projetos/Proj-micro/Tarefas/DSP/sci_echoback_micro_proc/device/device.h
+sci_ex3_echoback.obj: C:/dev/C-FOR-SIM-LIB/Projetos/Proj-micro/Tarefas/DSP/sci_echoback_micro_proc/device/device.h
 
 ../sci_ex3_echoback.c:
 
-F:/Dev/Cpp_Lib_For_PSIM/Projetos/Proj-micro/Tarefas/DSP/sci_echoback_micro_proc/device/driverlib.h:
+C:/dev/C-FOR-SIM-LIB/Projetos/Proj-micro/Tarefas/DSP/sci_echoback_micro_proc/device/driverlib.h:
 
 C:/ti/C2000Ware_26_00_00_00/driverlib/f2837xd/driverlib/inc/hw_memmap.h:
 
 C:/ti/C2000Ware_26_00_00_00/driverlib/f2837xd/driverlib/adc.h:
 
-C:/ti/ccs2051/ccs/tools/compiler/ti-cgt-c2000_25.11.0.LTS/include/stdbool.h:
+C:/ti/ccs2050/ccs/tools/compiler/ti-cgt-c2000_25.11.0.LTS/include/stdbool.h:
 
-C:/ti/ccs2051/ccs/tools/compiler/ti-cgt-c2000_25.11.0.LTS/include/_ti_config.h:
+C:/ti/ccs2050/ccs/tools/compiler/ti-cgt-c2000_25.11.0.LTS/include/_ti_config.h:
 
-C:/ti/ccs2051/ccs/tools/compiler/ti-cgt-c2000_25.11.0.LTS/include/linkage.h:
+C:/ti/ccs2050/ccs/tools/compiler/ti-cgt-c2000_25.11.0.LTS/include/linkage.h:
 
-C:/ti/ccs2051/ccs/tools/compiler/ti-cgt-c2000_25.11.0.LTS/include/stdint.h:
+C:/ti/ccs2050/ccs/tools/compiler/ti-cgt-c2000_25.11.0.LTS/include/stdint.h:
 
-C:/ti/ccs2051/ccs/tools/compiler/ti-cgt-c2000_25.11.0.LTS/include/_stdint40.h:
+C:/ti/ccs2050/ccs/tools/compiler/ti-cgt-c2000_25.11.0.LTS/include/_stdint40.h:
 
-C:/ti/ccs2051/ccs/tools/compiler/ti-cgt-c2000_25.11.0.LTS/include/sys/stdint.h:
+C:/ti/ccs2050/ccs/tools/compiler/ti-cgt-c2000_25.11.0.LTS/include/sys/stdint.h:
 
-C:/ti/ccs2051/ccs/tools/compiler/ti-cgt-c2000_25.11.0.LTS/include/sys/cdefs.h:
+C:/ti/ccs2050/ccs/tools/compiler/ti-cgt-c2000_25.11.0.LTS/include/sys/cdefs.h:
 
-C:/ti/ccs2051/ccs/tools/compiler/ti-cgt-c2000_25.11.0.LTS/include/sys/_types.h:
+C:/ti/ccs2050/ccs/tools/compiler/ti-cgt-c2000_25.11.0.LTS/include/sys/_types.h:
 
-C:/ti/ccs2051/ccs/tools/compiler/ti-cgt-c2000_25.11.0.LTS/include/machine/_types.h:
+C:/ti/ccs2050/ccs/tools/compiler/ti-cgt-c2000_25.11.0.LTS/include/machine/_types.h:
 
-C:/ti/ccs2051/ccs/tools/compiler/ti-cgt-c2000_25.11.0.LTS/include/machine/_stdint.h:
+C:/ti/ccs2050/ccs/tools/compiler/ti-cgt-c2000_25.11.0.LTS/include/machine/_stdint.h:
 
-C:/ti/ccs2051/ccs/tools/compiler/ti-cgt-c2000_25.11.0.LTS/include/sys/_stdint.h:
+C:/ti/ccs2050/ccs/tools/compiler/ti-cgt-c2000_25.11.0.LTS/include/sys/_stdint.h:
 
 C:/ti/C2000Ware_26_00_00_00/driverlib/f2837xd/driverlib/inc/hw_adc.h:
 
@@ -263,5 +263,5 @@ C:/ti/C2000Ware_26_00_00_00/driverlib/f2837xd/driverlib/version.h:
 
 C:/ti/C2000Ware_26_00_00_00/driverlib/f2837xd/driverlib/driver_inclusive_terminology_mapping.h:
 
-F:/Dev/Cpp_Lib_For_PSIM/Projetos/Proj-micro/Tarefas/DSP/sci_echoback_micro_proc/device/device.h:
+C:/dev/C-FOR-SIM-LIB/Projetos/Proj-micro/Tarefas/DSP/sci_echoback_micro_proc/device/device.h:
 

@@ -3,7 +3,7 @@
 #include <windows.h>
 #include "../include/Serial_utils.h"
 
-#define COM_PORT "\\\\.\\COM5"
+#define COM_PORT "\\\\.\\COM4"
 #include <stdint.h>
 
 extern "C" {
@@ -41,21 +41,19 @@ extern "C" {
 
         writeSerial(&x, sizeof(x));
 
-        int expectedBytes = sizeof(y);
-        int totalRead = 0;
-
-        uint8_t* rxPtr = (uint8_t*) &y;
-
-        while (totalRead < expectedBytes) {
-            int n = readSerial(rxPtr + totalRead, expectedBytes - totalRead);
-            if (n > 0) {
-                totalRead += n;
-            } else {
-                Sleep(1);
-            }
-
-
-        }
+        // int expectedBytes = sizeof(y);
+        // int totalRead = 0;
+        //
+        //
+        // while (totalRead < expectedBytes) {
+        //     int n = readSerial(&y + totalRead, expectedBytes - totalRead);
+        //     if (n > 0) {
+        //         totalRead += n;
+        //     } else {
+        //         Sleep(1);
+        //     }
+        // }
+        readSerial(&y, sizeof(y));
 
         out[0] = (double) y.p;
 

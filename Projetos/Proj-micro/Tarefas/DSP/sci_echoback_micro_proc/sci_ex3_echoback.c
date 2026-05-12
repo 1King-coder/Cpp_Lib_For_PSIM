@@ -213,17 +213,28 @@ void main(void)
         //
         // Read a character from the FIFO.
         //
-        SCI_readStruct(&x, sizeof(x));
-
         rxStatus = SCI_getRxStatus(SCIA_BASE);
         checkSCIError(rxStatus);
+        int i = 0;
+
+        for (i = 0; i<sizeof(x); i++) {
+            while(SCI_getRxFIFOStatus(SCIA_BASE) == SCI_FIFO_RX0);
+            __byte((char *) &x, i) = HWREGH(SCI_O_RXBUF + SCIA_BASE);
+        }
+
+        // SCI_readStruct(&x, sizeof(x));
+
 
         //
         // Echo back the character.
         //
         y.p = x.v * x.i;
+        for (i = 0; i<sizeof(y); i++) {
+            while(SCI_getTxFIFOStatus(SCIA_BASE) == SCI_FIFO_TX16);
 
-        SCI_writeStruct(&y, sizeof(y));
+            HWREGH( SCI_O_TXBUF + SCIA_BASE )= __byte((char *) &y, i);
+        }
+        // SCI_writeStruct(&y, sizeof(y));
 
 
         loopCounter++;

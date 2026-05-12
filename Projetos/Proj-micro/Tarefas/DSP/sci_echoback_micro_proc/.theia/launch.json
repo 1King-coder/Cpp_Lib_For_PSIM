@@ -1,0 +1,21 @@
+{
+  // Use IntelliSense to learn about possible attributes.
+  // Hover to view descriptions of existing attributes.
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "sci_echoback_micro_proc",
+      "type": "ccs-debug",
+      "request": "launch",
+      "projectInfo": {
+        "name": "sci_echoback_micro_proc",
+        "resourceId": "/sci_echoback_micro_proc"
+      },
+      "launchSettings": {
+        "coresToLoadForProjectLaunch": [
+          "C28xx_CPU1"
+        ]
+      }
+    }
+  ]
+}
