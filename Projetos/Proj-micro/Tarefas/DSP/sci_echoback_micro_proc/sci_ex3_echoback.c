@@ -188,51 +188,60 @@ void SCI_writeStruct(const void *buffer, uint16_t buffSize) {
     }
 }
 
+typedef struct  {
+    float kp;
+    float ki;
+} PI_GAINS;
+
+float u1 = 0;
+float y1 = 0;
+
+void PI_c (float* out, float* u, PI_GAINS gains, float timestep) {
+    *out = 2*gains.kp * (*u - u1) + gains.ki * timestep * (*u + u1) + y1;
+    u1 = *u;
+    y1 = *out;
+}
+
 struct SimData {
-    float v;
-    float i;
-    float p;
+    float u;
+    float y;
+    PI_GAINS gains;
 };
+
 
 void main(void)
 {
-    // uint16_t receivedChar;
-    // unsigned char *msg;
     uint16_t rxStatus = 0U;
-    struct SimData x, y;
+    struct SimData data;
+    float y;
+    
+    
 
-    //
-    // Configure PLL, disable WD, enable peripheral clocks.
-    //
+
     startup();
 
 
     for(;;)
     {
 
-        //
-        // Read a character from the FIFO.
-        //
+
         rxStatus = SCI_getRxStatus(SCIA_BASE);
         checkSCIError(rxStatus);
         int i = 0;
 
-        for (i = 0; i<sizeof(x); i++) {
+        for (i = 0; i<16; i++) {
             while(SCI_getRxFIFOStatus(SCIA_BASE) == SCI_FIFO_RX0);
-            __byte((char *) &x, i) = HWREGH(SCI_O_RXBUF + SCIA_BASE);
+            __byte((uint8_t*) &data, i) = HWREGH(SCI_O_RXBUF + SCIA_BASE) & 0xff;
         }
 
         // SCI_readStruct(&x, sizeof(x));
+        
+        PI_c(&y, &data.u, data.gains, 1e-6);
 
 
-        //
-        // Echo back the character.
-        //
-        y.p = x.v * x.i;
-        for (i = 0; i<sizeof(y); i++) {
+        for (i = 0; i<4; i++) {
             while(SCI_getTxFIFOStatus(SCIA_BASE) == SCI_FIFO_TX16);
-
-            HWREGH( SCI_O_TXBUF + SCIA_BASE )= __byte((char *) &y, i);
+            HWREGH(SCI_O_TXBUF + SCIA_BASE )= __byte((uint8_t*) &y, i);
         }
         // SCI_writeStruct(&y, sizeof(y));
 
