@@ -215,11 +215,7 @@ void main(void)
     struct SimData data;
     float y;
     
-    
-
-
     startup();
-
 
     for(;;)
     {
