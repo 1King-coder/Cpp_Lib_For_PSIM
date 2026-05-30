@@ -1,7 +1,7 @@
 ******************************************************************************
              TMS320C2000 Linker PC v25.11.0                    
 ******************************************************************************
->> Linked Tue May 19 15:04:38 2026
+>> Linked Fri May 29 22:40:41 2026
 
 OUTPUT FILE NAME:   <sci_echoback_micro_proc.out>
 ENTRY POINT SYMBOL: "code_start"  address: 00000000

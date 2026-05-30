@@ -56,6 +56,33 @@
                     "C28xx_CPU1"
                 ]
             }
+        },
+        {
+            "name": "Proj-micro-project",
+            "type": "ccs-debug",
+            "request": "launch",
+            "projectInfo": {
+                "name": "Proj-micro-project",
+                "resourceId": "/Proj-micro-project"
+            },
+            "launchSettings": {
+                "coresToLoadForProjectLaunch": [
+                    "C28xx_CPU1"
+                ]
+            },
+            "connections": [
+                {
+                    "name": "Texas Instruments XDS100v2 USB Debug Probe",
+                    "cores": [
+                        {
+                            "name": "C28xx_CPU1",
+                            "debuggerSettings": {
+                                "data": "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"no\" ?>\n<PropertyValues/>\n"
+                            }
+                        }
+                    ]
+                }
+            ]
         }
     ]
 }
