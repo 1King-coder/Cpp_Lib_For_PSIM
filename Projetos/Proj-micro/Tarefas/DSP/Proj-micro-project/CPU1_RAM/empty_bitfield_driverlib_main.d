@@ -4,20 +4,20 @@ empty_bitfield_driverlib_main.obj: ../empty_bitfield_driverlib_main.c
 empty_bitfield_driverlib_main.obj: C:/ti/C2000Ware_26_00_00_00/device_support/f2837xd/common/include/F28x_Project.h
 empty_bitfield_driverlib_main.obj: C:/ti/C2000Ware_26_00_00_00/device_support/f2837xd/common/include/F2837xD_Cla_typedefs.h
 empty_bitfield_driverlib_main.obj: C:/ti/C2000Ware_26_00_00_00/device_support/f2837xd/headers/include/F2837xD_device.h
-empty_bitfield_driverlib_main.obj: C:/ti/ccs2051/ccs/tools/compiler/ti-cgt-c2000_25.11.0.LTS/include/stdint.h
-empty_bitfield_driverlib_main.obj: C:/ti/ccs2051/ccs/tools/compiler/ti-cgt-c2000_25.11.0.LTS/include/_ti_config.h
-empty_bitfield_driverlib_main.obj: C:/ti/ccs2051/ccs/tools/compiler/ti-cgt-c2000_25.11.0.LTS/include/linkage.h
-empty_bitfield_driverlib_main.obj: C:/ti/ccs2051/ccs/tools/compiler/ti-cgt-c2000_25.11.0.LTS/include/_stdint40.h
-empty_bitfield_driverlib_main.obj: C:/ti/ccs2051/ccs/tools/compiler/ti-cgt-c2000_25.11.0.LTS/include/sys/stdint.h
-empty_bitfield_driverlib_main.obj: C:/ti/ccs2051/ccs/tools/compiler/ti-cgt-c2000_25.11.0.LTS/include/sys/cdefs.h
-empty_bitfield_driverlib_main.obj: C:/ti/ccs2051/ccs/tools/compiler/ti-cgt-c2000_25.11.0.LTS/include/sys/_types.h
-empty_bitfield_driverlib_main.obj: C:/ti/ccs2051/ccs/tools/compiler/ti-cgt-c2000_25.11.0.LTS/include/machine/_types.h
-empty_bitfield_driverlib_main.obj: C:/ti/ccs2051/ccs/tools/compiler/ti-cgt-c2000_25.11.0.LTS/include/machine/_stdint.h
-empty_bitfield_driverlib_main.obj: C:/ti/ccs2051/ccs/tools/compiler/ti-cgt-c2000_25.11.0.LTS/include/sys/_stdint.h
-empty_bitfield_driverlib_main.obj: C:/ti/ccs2051/ccs/tools/compiler/ti-cgt-c2000_25.11.0.LTS/include/assert.h
-empty_bitfield_driverlib_main.obj: C:/ti/ccs2051/ccs/tools/compiler/ti-cgt-c2000_25.11.0.LTS/include/stdarg.h
-empty_bitfield_driverlib_main.obj: C:/ti/ccs2051/ccs/tools/compiler/ti-cgt-c2000_25.11.0.LTS/include/stdbool.h
-empty_bitfield_driverlib_main.obj: C:/ti/ccs2051/ccs/tools/compiler/ti-cgt-c2000_25.11.0.LTS/include/stddef.h
+empty_bitfield_driverlib_main.obj: C:/ti/ccs2050/ccs/tools/compiler/ti-cgt-c2000_25.11.0.LTS/include/stdint.h
+empty_bitfield_driverlib_main.obj: C:/ti/ccs2050/ccs/tools/compiler/ti-cgt-c2000_25.11.0.LTS/include/_ti_config.h
+empty_bitfield_driverlib_main.obj: C:/ti/ccs2050/ccs/tools/compiler/ti-cgt-c2000_25.11.0.LTS/include/linkage.h
+empty_bitfield_driverlib_main.obj: C:/ti/ccs2050/ccs/tools/compiler/ti-cgt-c2000_25.11.0.LTS/include/_stdint40.h
+empty_bitfield_driverlib_main.obj: C:/ti/ccs2050/ccs/tools/compiler/ti-cgt-c2000_25.11.0.LTS/include/sys/stdint.h
+empty_bitfield_driverlib_main.obj: C:/ti/ccs2050/ccs/tools/compiler/ti-cgt-c2000_25.11.0.LTS/include/sys/cdefs.h
+empty_bitfield_driverlib_main.obj: C:/ti/ccs2050/ccs/tools/compiler/ti-cgt-c2000_25.11.0.LTS/include/sys/_types.h
+empty_bitfield_driverlib_main.obj: C:/ti/ccs2050/ccs/tools/compiler/ti-cgt-c2000_25.11.0.LTS/include/machine/_types.h
+empty_bitfield_driverlib_main.obj: C:/ti/ccs2050/ccs/tools/compiler/ti-cgt-c2000_25.11.0.LTS/include/machine/_stdint.h
+empty_bitfield_driverlib_main.obj: C:/ti/ccs2050/ccs/tools/compiler/ti-cgt-c2000_25.11.0.LTS/include/sys/_stdint.h
+empty_bitfield_driverlib_main.obj: C:/ti/ccs2050/ccs/tools/compiler/ti-cgt-c2000_25.11.0.LTS/include/assert.h
+empty_bitfield_driverlib_main.obj: C:/ti/ccs2050/ccs/tools/compiler/ti-cgt-c2000_25.11.0.LTS/include/stdarg.h
+empty_bitfield_driverlib_main.obj: C:/ti/ccs2050/ccs/tools/compiler/ti-cgt-c2000_25.11.0.LTS/include/stdbool.h
+empty_bitfield_driverlib_main.obj: C:/ti/ccs2050/ccs/tools/compiler/ti-cgt-c2000_25.11.0.LTS/include/stddef.h
 empty_bitfield_driverlib_main.obj: C:/ti/C2000Ware_26_00_00_00/device_support/f2837xd/headers/include/F2837xD_adc.h
 empty_bitfield_driverlib_main.obj: C:/ti/C2000Ware_26_00_00_00/device_support/f2837xd/headers/include/F2837xD_analogsubsys.h
 empty_bitfield_driverlib_main.obj: C:/ti/C2000Ware_26_00_00_00/device_support/f2837xd/headers/include/F2837xD_cla.h
@@ -77,33 +77,33 @@ C:/ti/C2000Ware_26_00_00_00/device_support/f2837xd/common/include/F2837xD_Cla_ty
 
 C:/ti/C2000Ware_26_00_00_00/device_support/f2837xd/headers/include/F2837xD_device.h:
 
-C:/ti/ccs2051/ccs/tools/compiler/ti-cgt-c2000_25.11.0.LTS/include/stdint.h:
+C:/ti/ccs2050/ccs/tools/compiler/ti-cgt-c2000_25.11.0.LTS/include/stdint.h:
 
-C:/ti/ccs2051/ccs/tools/compiler/ti-cgt-c2000_25.11.0.LTS/include/_ti_config.h:
+C:/ti/ccs2050/ccs/tools/compiler/ti-cgt-c2000_25.11.0.LTS/include/_ti_config.h:
 
-C:/ti/ccs2051/ccs/tools/compiler/ti-cgt-c2000_25.11.0.LTS/include/linkage.h:
+C:/ti/ccs2050/ccs/tools/compiler/ti-cgt-c2000_25.11.0.LTS/include/linkage.h:
 
-C:/ti/ccs2051/ccs/tools/compiler/ti-cgt-c2000_25.11.0.LTS/include/_stdint40.h:
+C:/ti/ccs2050/ccs/tools/compiler/ti-cgt-c2000_25.11.0.LTS/include/_stdint40.h:
 
-C:/ti/ccs2051/ccs/tools/compiler/ti-cgt-c2000_25.11.0.LTS/include/sys/stdint.h:
+C:/ti/ccs2050/ccs/tools/compiler/ti-cgt-c2000_25.11.0.LTS/include/sys/stdint.h:
 
-C:/ti/ccs2051/ccs/tools/compiler/ti-cgt-c2000_25.11.0.LTS/include/sys/cdefs.h:
+C:/ti/ccs2050/ccs/tools/compiler/ti-cgt-c2000_25.11.0.LTS/include/sys/cdefs.h:
 
-C:/ti/ccs2051/ccs/tools/compiler/ti-cgt-c2000_25.11.0.LTS/include/sys/_types.h:
+C:/ti/ccs2050/ccs/tools/compiler/ti-cgt-c2000_25.11.0.LTS/include/sys/_types.h:
 
-C:/ti/ccs2051/ccs/tools/compiler/ti-cgt-c2000_25.11.0.LTS/include/machine/_types.h:
+C:/ti/ccs2050/ccs/tools/compiler/ti-cgt-c2000_25.11.0.LTS/include/machine/_types.h:
 
-C:/ti/ccs2051/ccs/tools/compiler/ti-cgt-c2000_25.11.0.LTS/include/machine/_stdint.h:
+C:/ti/ccs2050/ccs/tools/compiler/ti-cgt-c2000_25.11.0.LTS/include/machine/_stdint.h:
 
-C:/ti/ccs2051/ccs/tools/compiler/ti-cgt-c2000_25.11.0.LTS/include/sys/_stdint.h:
+C:/ti/ccs2050/ccs/tools/compiler/ti-cgt-c2000_25.11.0.LTS/include/sys/_stdint.h:
 
-C:/ti/ccs2051/ccs/tools/compiler/ti-cgt-c2000_25.11.0.LTS/include/assert.h:
+C:/ti/ccs2050/ccs/tools/compiler/ti-cgt-c2000_25.11.0.LTS/include/assert.h:
 
-C:/ti/ccs2051/ccs/tools/compiler/ti-cgt-c2000_25.11.0.LTS/include/stdarg.h:
+C:/ti/ccs2050/ccs/tools/compiler/ti-cgt-c2000_25.11.0.LTS/include/stdarg.h:
 
-C:/ti/ccs2051/ccs/tools/compiler/ti-cgt-c2000_25.11.0.LTS/include/stdbool.h:
+C:/ti/ccs2050/ccs/tools/compiler/ti-cgt-c2000_25.11.0.LTS/include/stdbool.h:
 
-C:/ti/ccs2051/ccs/tools/compiler/ti-cgt-c2000_25.11.0.LTS/include/stddef.h:
+C:/ti/ccs2050/ccs/tools/compiler/ti-cgt-c2000_25.11.0.LTS/include/stddef.h:
 
 C:/ti/C2000Ware_26_00_00_00/device_support/f2837xd/headers/include/F2837xD_adc.h:
 

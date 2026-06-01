@@ -1,91 +1,3 @@
-//###########################################################################
-//
-// FILE:    Example_2837xDSci_Echoback.c
-//
-// TITLE:   SCI Echoback.
-//
-//! \addtogroup cpu01_example_list
-//! <h1>SCI Echoback (sci_echoback)</h1>
-//!
-//!  This test receives and echo-backs data through the SCI-A port.
-//!
-//!  The PC application 'hyperterminal' or another terminal
-//!  such as 'putty' can be used to view the data from the SCI and
-//!  to send information to the SCI.  Characters received
-//!  by the SCI port are sent back to the host.
-//!
-//!  \b Running \b the \b Application
-//!  -# Configure hyperterminal or another terminal such as putty:
-//!
-//!  For hyperterminal you can use the included hyperterminal configuration
-//!  file SCI_96.ht.
-//!  To load this configuration in hyperterminal
-//!    -# Open hyperterminal
-//!    -# Go to file->open
-//!    -# Browse to the location of the project and
-//!       select the SCI_96.ht file.
-//!  -# Check the COM port.
-//!  The configuration file is currently setup for COM1.
-//!  If this is not correct, disconnect (Call->Disconnect)
-//!  Open the File-Properties dialogue and select the correct COM port.
-//!  -# Connect hyperterminal Call->Call
-//!  and then start the 2837xD SCI echoback program execution.
-//!  -# The program will print out a greeting and then ask you to
-//!  enter a character which it will echo back to hyperterminal.
-//!
-//!  \note If you are unable to open the .ht file, or you are using
-//!  a different terminal, you can open a COM port with the following settings
-//!  -  Find correct COM port
-//!  -  Bits per second = 9600
-//!  -  Date Bits = 8
-//!  -  Parity = None
-//!  -  Stop Bits = 1
-//!  -  Hardware Control = None
-//!
-//!  \b Watch \b Variables \n
-//!  - LoopCount - the number of characters sent
-//!
-//! \b External \b Connections \n
-//!  Connect the SCI-A port to a PC via a transceiver and cable.
-//!  - GPIO28 is SCI_A-RXD (Connect to Pin3, PC-TX, of serial DB9 cable)
-//!  - GPIO29 is SCI_A-TXD (Connect to Pin2, PC-RX, of serial DB9 cable)
-//!
-//
-//###########################################################################
-//
-// $Release Date:  $
-// $Copyright:
-// Copyright (C) 2013-2026 Texas Instruments Incorporated - http://www.ti.com/
-//
-// Redistribution and use in source and binary forms, with or without 
-// modification, are permitted provided that the following conditions 
-// are met:
-// 
-//   Redistributions of source code must retain the above copyright 
-//   notice, this list of conditions and the following disclaimer.
-// 
-//   Redistributions in binary form must reproduce the above copyright
-//   notice, this list of conditions and the following disclaimer in the 
-//   documentation and/or other materials provided with the   
-//   distribution.
-// 
-//   Neither the name of Texas Instruments Incorporated nor the names of
-//   its contributors may be used to endorse or promote products derived
-//   from this software without specific prior written permission.
-// 
-// THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS 
-// "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT 
-// LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
-// A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT 
-// OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, 
-// SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT 
-// LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
-// DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
-// THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT 
-// (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE 
-// OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
-// $
-//###########################################################################
 
 //
 // Included Files
@@ -104,35 +16,27 @@ void scia_echoback_init(void);
 void scia_fifo_init(void);
 void scia_xmit(int a);
 void scia_msg(char *msg);
+void startup(void) {
+    //
+    // Step 1. Initialize System Control:
+    // PLL, WatchDog, enable Peripheral Clocks
+    // This example function is found in the F2837xD_SysCtrl.c file.
+    //
+    InitSysCtrl();
 
-//
-// Main
-//
-void main(void)
-{
-    Uint16 ReceivedChar;
-    char *msg;
+    //
+    // Step 2. Initialize GPIO:
+    // This example function is found in the F2837xD_Gpio.c file and
+    // illustrates how to set the GPIO to it's default state.
+    //
+    InitGpio();
 
-//
-// Step 1. Initialize System Control:
-// PLL, WatchDog, enable Peripheral Clocks
-// This example function is found in the F2837xD_SysCtrl.c file.
-//
-   InitSysCtrl();
-
-//
-// Step 2. Initialize GPIO:
-// This example function is found in the F2837xD_Gpio.c file and
-// illustrates how to set the GPIO to it's default state.
-//
-   InitGpio();
-
-//
-// For this example, only init the pins for the SCI-A port.
-//  GPIO_SetupPinMux() - Sets the GPxMUX1/2 and GPyMUX1/2 register bits
-//  GPIO_SetupPinOptions() - Sets the direction and configuration of the GPIOS
-// These functions are found in the F2837xD_Gpio.c file.
-//
+    //
+    // For this example, only init the pins for the SCI-A port.
+    //  GPIO_SetupPinMux() - Sets the GPxMUX1/2 and GPyMUX1/2 register bits
+    //  GPIO_SetupPinOptions() - Sets the direction and configuration of the GPIOS
+    // These functions are found in the F2837xD_Gpio.c file.
+    //
 #ifdef _LAUNCHXL_F2837xD
     GPIO_SetupPinMux(43, GPIO_MUX_CPU1, 15); 
     GPIO_SetupPinOptions(43, GPIO_INPUT, GPIO_PUSHPULL);
@@ -140,80 +44,98 @@ void main(void)
     GPIO_SetupPinMux(42, GPIO_MUX_CPU1, 15); 
     GPIO_SetupPinOptions(42, GPIO_OUTPUT, GPIO_ASYNC);
 #else
-   GPIO_SetupPinMux(28, GPIO_MUX_CPU1, 1);
-   GPIO_SetupPinOptions(28, GPIO_INPUT, GPIO_PUSHPULL);
-   GPIO_SetupPinMux(29, GPIO_MUX_CPU1, 1);
-   GPIO_SetupPinOptions(29, GPIO_OUTPUT, GPIO_ASYNC);
+    GPIO_SetupPinMux(28, GPIO_MUX_CPU1, 1);
+    GPIO_SetupPinOptions(28, GPIO_INPUT, GPIO_PUSHPULL);
+    GPIO_SetupPinMux(29, GPIO_MUX_CPU1, 1);
+    GPIO_SetupPinOptions(29, GPIO_OUTPUT, GPIO_ASYNC);
 #endif
 
+    //
+    // Step 3. Clear all __interrupts and initialize PIE vector table:
+    // Disable CPU __interrupts
+    //
+    DINT;
+
+    //
+    // Initialize PIE control registers to their default state.
+    // The default state is all PIE __interrupts disabled and flags
+    // are cleared.
+    // This function is found in the F2837xD_PieCtrl.c file.
+    //
+    InitPieCtrl();
+
+    //
+    // Disable CPU __interrupts and clear all CPU __interrupt flags:
+    //
+    IER = 0x0000;
+    IFR = 0x0000;
+
+    //
+    // Initialize the PIE vector table with pointers to the shell Interrupt
+    // Service Routines (ISR).
+    // This will populate the entire table, even if the __interrupt
+    // is not used in this example.  This is useful for debug purposes.
+    // The shell ISR routines are found in F2837xD_DefaultIsr.c.
+    // This function is found in F2837xD_PieVect.c.
+    //
+    InitPieVectTable();
+}
 //
-// Step 3. Clear all __interrupts and initialize PIE vector table:
-// Disable CPU __interrupts
+// Main
 //
-   DINT;
 
-//
-// Initialize PIE control registers to their default state.
-// The default state is all PIE __interrupts disabled and flags
-// are cleared.
-// This function is found in the F2837xD_PieCtrl.c file.
-//
-   InitPieCtrl();
+typedef struct  {
+    float kp;
+    float ki;
+} PI_GAINS;
 
-//
-// Disable CPU __interrupts and clear all CPU __interrupt flags:
-//
-   IER = 0x0000;
-   IFR = 0x0000;
+float u1 = 0;
+float y1 = 0;
 
-//
-// Initialize the PIE vector table with pointers to the shell Interrupt
-// Service Routines (ISR).
-// This will populate the entire table, even if the __interrupt
-// is not used in this example.  This is useful for debug purposes.
-// The shell ISR routines are found in F2837xD_DefaultIsr.c.
-// This function is found in F2837xD_PieVect.c.
-//
-   InitPieVectTable();
+void PI_c (float* out, float* u, PI_GAINS gains, float timestep) {
+    *out = 2*gains.kp * (*u - u1) + gains.ki * timestep * (*u + u1) + y1;
+    u1 = *u;
+    y1 = *out;
+}
 
-//
-// Step 4. User specific code:
-//
-   LoopCount = 0;
+struct SimData {
+    float u;
+    float y;
+    PI_GAINS gains;
+};
 
-   scia_fifo_init();       // Initialize the SCI FIFO
-   scia_echoback_init();   // Initialize SCI for echoback
+void main(void)
+{
+    struct SimData data;
+    float y;
 
-   msg = "\r\n\n\nHello World!\0";
-   scia_msg(msg);
+    
+    startup();
+    //
+    // Step 4. User specific code:
+    //
+    LoopCount = 0;
 
-   msg = "\r\nYou will enter a character, and the DSP will echo it back! \n\0";
-   scia_msg(msg);
+    scia_fifo_init();       // Initialize the SCI FIFO
+    scia_echoback_init();   // Initialize SCI for echoback
 
-   for(;;)
-   {
-       msg = "\r\nEnter a character: \0";
-       scia_msg(msg);
+    for(;;)
+    {
+        int i = 0;
 
-       //
-       // Wait for inc character
-       //
-       while(SciaRegs.SCIFFRX.bit.RXFFST == 0) { } // wait for empty state
+        for (i = 0; i < 16; i++) {
+            while(SciaRegs.SCIFFRX.bit.RXFFST == 0) { }
+            __byte((char*) &data, i) = SciaRegs.SCIRXBUF.all;
+        }
 
-       //
-       // Get character
-       //
-       ReceivedChar = SciaRegs.SCIRXBUF.all;
+        PI_c(&y, &data.u, data.gains, 1e-6);
 
-       //
-       // Echo character back
-       //
-       msg = "  You sent: \0";
-       scia_msg(msg);
-       scia_xmit(ReceivedChar);
-
-       LoopCount++;
-   }
+        for (i = 0; i<4; i++) {
+            while (SciaRegs.SCIFFTX.bit.TXFFST != 0) {}
+            SciaRegs.SCITXBUF.all = __byte((char*) &y, i);
+        }
+        LoopCount++;
+    }
 }
 
 //

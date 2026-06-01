@@ -3,7 +3,7 @@
 #include <windows.h>
 #include "../include/Serial_utils.h"
 
-#define COM_PORT "\\\\.\\COM5"
+#define COM_PORT "\\\\.\\COM4"
 #include <chrono>
 #include <stdint.h>
 
