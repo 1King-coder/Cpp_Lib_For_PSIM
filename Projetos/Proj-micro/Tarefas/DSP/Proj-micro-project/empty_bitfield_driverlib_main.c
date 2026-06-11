@@ -8,82 +8,38 @@
 // Globals
 //
 Uint16 LoopCount;
-
+#define BAUD 115200.0
 //
 // Function Prototypes
 //
 void scia_echoback_init(void);
 void scia_fifo_init(void);
-void scia_xmit(int a);
-void scia_msg(char *msg);
+void receiveData (void *buff, int size);
+void sendData(void *buff, int size);
+
 void startup(void) {
-    //
-    // Step 1. Initialize System Control:
-    // PLL, WatchDog, enable Peripheral Clocks
-    // This example function is found in the F2837xD_SysCtrl.c file.
-    //
+
     InitSysCtrl();
 
-    //
-    // Step 2. Initialize GPIO:
-    // This example function is found in the F2837xD_Gpio.c file and
-    // illustrates how to set the GPIO to it's default state.
-    //
     InitGpio();
 
-    //
-    // For this example, only init the pins for the SCI-A port.
-    //  GPIO_SetupPinMux() - Sets the GPxMUX1/2 and GPyMUX1/2 register bits
-    //  GPIO_SetupPinOptions() - Sets the direction and configuration of the GPIOS
-    // These functions are found in the F2837xD_Gpio.c file.
-    //
-#ifdef _LAUNCHXL_F2837xD
     GPIO_SetupPinMux(43, GPIO_MUX_CPU1, 15); 
     GPIO_SetupPinOptions(43, GPIO_INPUT, GPIO_PUSHPULL);
     
     GPIO_SetupPinMux(42, GPIO_MUX_CPU1, 15); 
     GPIO_SetupPinOptions(42, GPIO_OUTPUT, GPIO_ASYNC);
-#else
-    GPIO_SetupPinMux(28, GPIO_MUX_CPU1, 1);
-    GPIO_SetupPinOptions(28, GPIO_INPUT, GPIO_PUSHPULL);
-    GPIO_SetupPinMux(29, GPIO_MUX_CPU1, 1);
-    GPIO_SetupPinOptions(29, GPIO_OUTPUT, GPIO_ASYNC);
-#endif
 
-    //
-    // Step 3. Clear all __interrupts and initialize PIE vector table:
-    // Disable CPU __interrupts
-    //
     DINT;
 
-    //
-    // Initialize PIE control registers to their default state.
-    // The default state is all PIE __interrupts disabled and flags
-    // are cleared.
-    // This function is found in the F2837xD_PieCtrl.c file.
-    //
     InitPieCtrl();
 
-    //
-    // Disable CPU __interrupts and clear all CPU __interrupt flags:
-    //
     IER = 0x0000;
     IFR = 0x0000;
 
-    //
-    // Initialize the PIE vector table with pointers to the shell Interrupt
-    // Service Routines (ISR).
-    // This will populate the entire table, even if the __interrupt
-    // is not used in this example.  This is useful for debug purposes.
-    // The shell ISR routines are found in F2837xD_DefaultIsr.c.
-    // This function is found in F2837xD_PieVect.c.
-    //
     InitPieVectTable();
 }
-//
-// Main
-//
 
+// global variables
 typedef struct  {
     float kp;
     float ki;
@@ -92,56 +48,94 @@ typedef struct  {
 float u1 = 0;
 float y1 = 0;
 
-void PI_c (float* out, float* u, PI_GAINS gains, float timestep) {
-    *out = 2*gains.kp * (*u - u1) + gains.ki * timestep * (*u + u1) + y1;
-    u1 = *u;
-    y1 = *out;
-}
-
 struct SimData {
     float u;
     float y;
     PI_GAINS gains;
 };
 
+struct SimData data;
+
+float y;
+int dataReceived = 0;
+
+void PI_c (float* out, float* u, PI_GAINS gains, float sampling_time) {
+    *out = gains.kp * (*u - u1) + gains.ki * sampling_time * (*u + u1) / 2 + y1;
+    if (*out >= 8) {
+        *out = 8;
+    } else if (*out <=0) {
+        *out = 0;
+    }
+    u1 = *u;
+    y1 = *out;
+}
+
+
+
+interrupt void processDataReceiveINT (void) {
+    receiveData(&data, 16);
+    PI_c(&y, &data.u, data.gains, 1/40e3);
+
+    sendData(&y, 4);
+
+    SciaRegs.SCIFFRX.bit.RXFFOVRCLR = 1;
+    SciaRegs.SCIFFRX.bit.RXFFINTCLR = 1;
+    PieCtrlRegs.PIEACK.all = PIEACK_GROUP9;
+    
+}
+
+
 void main(void)
 {
-    struct SimData data;
-    float y;
-
     
     startup();
-    //
-    // Step 4. User specific code:
-    //
+
     LoopCount = 0;
 
-    scia_fifo_init();       // Initialize the SCI FIFO
-    scia_echoback_init();   // Initialize SCI for echoback
+    EALLOW;
+    PieVectTable.SCIA_RX_INT = &processDataReceiveINT;
+    EDIS;
+    
+    scia_fifo_init();       
+    scia_echoback_init();
+
+    PieCtrlRegs.PIEIER9.bit.INTx1 = 1;
+    IER |= M_INT9;
+    EINT;
 
     for(;;)
     {
-        int i = 0;
 
-        for (i = 0; i < 16; i++) {
-            while(SciaRegs.SCIFFRX.bit.RXFFST == 0) { }
-            __byte((char*) &data, i) = SciaRegs.SCIRXBUF.all;
-        }
+        // if (dataReceived) {
+        //     sendData(&y, 4);
+        //     dataReceived = 0;
+        // }
 
-        PI_c(&y, &data.u, data.gains, 1e-6);
-
-        for (i = 0; i<4; i++) {
-            while (SciaRegs.SCIFFTX.bit.TXFFST != 0) {}
-            SciaRegs.SCITXBUF.all = __byte((char*) &y, i);
-        }
         LoopCount++;
     }
 }
 
-//
-//  scia_echoback_init - Test 1,SCIA  DLB, 8-bit word, baud rate 0x000F,
-//                       default, 1 STOP bit, no parity
-//
+void setup_baud (float baudRate) {
+    uint32_t lspclk_hz;
+    
+    // 1. Read the actual LOSPCP hardware divider 
+    uint16_t lospcp_val = ClkCfgRegs.LOSPCP.bit.LSPCLKDIV; 
+
+    // 2. Calculate LSPCLK based on the TRM divider logic 
+    if (lospcp_val == 0) {
+        lspclk_hz = 200e6;         // /1 divider
+    } else {
+        lspclk_hz = 200e6 / (lospcp_val * 2); // /2, /4, /6, /8, /10, /12, /14 dividers
+    }
+
+    // 3. Calculate exact BRR value with standard +0.5 rounding [cite: 499]
+    float brr_float = ((float)lspclk_hz / (baudRate * 8.0f)) - 1.0f + 0.5f;
+    uint16_t brr_val = (uint16_t)brr_float;
+
+    // 4. Split and apply to the High and Low Baud Registers 
+    SciaRegs.SCIHBAUD.all = (brr_val >> 8) & 0xFF;
+    SciaRegs.SCILBAUD.all = brr_val & 0xFF;
+}
 void scia_echoback_init()
 {
     //
@@ -158,43 +152,26 @@ void scia_echoback_init()
     SciaRegs.SCICTL2.bit.TXINTENA = 1;
     SciaRegs.SCICTL2.bit.RXBKINTENA = 1;
 
-    //
-    // SCIA at 9600 baud
-    // @LSPCLK = 50 MHz (200 MHz SYSCLK) HBAUD = 0x02 and LBAUD = 0x8B.
-    // @LSPCLK = 30 MHz (120 MHz SYSCLK) HBAUD = 0x01 and LBAUD = 0x86.
-    //
-    float LSPCLK_FREQ = 25000000.0; // ALTERE PARA 25000000.0 SE O LIXO CONTINUAR
-    float SCI_BAUD = 9600.0;        // Certifique-se que o Terminal/Putty está em 9600
-    
-    // Cálculo exato do Baud Rate Register (BRR)
-    Uint16 brr_val = (Uint16)((LSPCLK_FREQ / (SCI_BAUD * 8.0)) - 1.0 + 0.5);
-
-    SciaRegs.SCIHBAUD.all = (brr_val >> 8) & 0xFF;
-    SciaRegs.SCILBAUD.all = brr_val & 0xFF;
+   setup_baud(BAUD);
 
     SciaRegs.SCICTL1.all = 0x0023;
 }
 
-//
-// scia_xmit - Transmit a character from the SCI
-//
-void scia_xmit(int a)
-{
-    while (SciaRegs.SCIFFTX.bit.TXFFST == 16) {} 
-    SciaRegs.SCITXBUF.all = a;
-}
-
-//
-// scia_msg - Transmit message via SCIA
-//
-void scia_msg(char * msg)
+void sendData(void *buff, int size)
 {
     int i;
-    i = 0;
-    while(msg[i] != '\0')
-    {
-        scia_xmit(msg[i]);
-        i++;
+    for (i = 0; i<size; i++) {
+        while (SciaRegs.SCIFFTX.bit.TXFFST != 0) {}
+        SciaRegs.SCITXBUF.all = __byte((int*) buff, i);
+    }
+}
+
+void receiveData (void *buff, int size)
+{
+    int i;
+    for (i = 0; i < size; i++) {
+
+        __byte((int*) buff, i) = SciaRegs.SCIRXBUF.all;
     }
 }
 
@@ -203,8 +180,16 @@ void scia_msg(char * msg)
 //
 void scia_fifo_init()
 {
-    SciaRegs.SCIFFTX.all = 0xE040;
-    SciaRegs.SCIFFRX.all = 0x2044;
+
+    SciaRegs.SCIFFTX.bit.SCIFFENA = 1;
+    SciaRegs.SCIFFTX.bit.TXFIFORESET = 0;
+    SciaRegs.SCIFFTX.bit.TXFIFORESET = 1;
+    
+    SciaRegs.SCIFFRX.bit.RXFIFORESET = 0; 
+    SciaRegs.SCIFFRX.bit.RXFIFORESET = 1; 
+    SciaRegs.SCIFFRX.bit.RXFFIENA = 1;    
+    SciaRegs.SCIFFRX.bit.RXFFIL = 16;      // NÍVEL DE INTERRUPÇÃO: Dispara a ISR quando chegar a 4 bytes (Tamanho de 1 float)
+
     SciaRegs.SCIFFCT.all = 0x0;
 }
 

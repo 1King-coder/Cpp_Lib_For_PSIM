@@ -57,6 +57,7 @@
                                     <listOptionValue value="_DUAL_HEADERS"/>
                                     <listOptionValue value="CPU1"/>
                                     <listOptionValue value="_LAUNCHXL_F2837xD"/>
+                                    <listOptionValue value="_LAUNCHXL_F28379D"/>
                                 </option>
                                 <option id="com.ti.ccstudio.buildDefinitions.C2000_25.11.compilerID.DIAG_SUPPRESS.1739709850" superClass="com.ti.ccstudio.buildDefinitions.C2000_25.11.compilerID.DIAG_SUPPRESS" valueType="stringList">
                                     <listOptionValue value="10063"/>

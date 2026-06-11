@@ -16,7 +16,7 @@ int openSerial(const char *portName) {
     dcbSerialParams.DCBlength = sizeof(dcbSerialParams);
     if (!GetCommState(hSerial, &dcbSerialParams)) return 0;
 
-    dcbSerialParams.BaudRate =  CBR_9600;
+    dcbSerialParams.BaudRate =  CBR_115200;
     dcbSerialParams.ByteSize = 8;
     dcbSerialParams.StopBits = ONESTOPBIT;
     dcbSerialParams.Parity   = NOPARITY;
