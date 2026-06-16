@@ -23,8 +23,8 @@ int openSerial(const char *portName) {
     if (!SetCommState(hSerial, &dcbSerialParams)) return 0;
 
     COMMTIMEOUTS timeouts = {0};
-    timeouts.ReadIntervalTimeout = MAXDWORD;
-    timeouts.ReadTotalTimeoutConstant = 0;
+    timeouts.ReadIntervalTimeout = 0;
+    timeouts.ReadTotalTimeoutConstant = 2000;
     timeouts.ReadTotalTimeoutMultiplier = 0;
     timeouts.WriteTotalTimeoutConstant = 0;
     timeouts.WriteTotalTimeoutMultiplier = 0;

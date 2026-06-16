@@ -1,6 +1,6 @@
 # FIXED
 
-main.obj: ../main.c
+main.obj: ../main.cpp
 main.obj: C:/ti/C2000Ware_26_00_00_00/device_support/f2837xd/common/include/F28x_Project.h
 main.obj: C:/ti/C2000Ware_26_00_00_00/device_support/f2837xd/common/include/F2837xD_Cla_typedefs.h
 main.obj: C:/ti/C2000Ware_26_00_00_00/device_support/f2837xd/headers/include/F2837xD_device.h
@@ -68,8 +68,11 @@ main.obj: C:/ti/C2000Ware_26_00_00_00/device_support/f2837xd/common/include/F283
 main.obj: C:/ti/C2000Ware_26_00_00_00/device_support/f2837xd/common/include/F2837xD_SysCtrl_defines.h
 main.obj: C:/ti/C2000Ware_26_00_00_00/device_support/f2837xd/common/include/F2837xD_Upp_defines.h
 main.obj: C:/ti/C2000Ware_26_00_00_00/device_support/f2837xd/common/include/F2837xD_defaultisr.h
+main.obj: F:/Dev/Cpp_Lib_For_PSIM/Projetos/Proj-micro/Tarefas/DSP/PROJETO-CTRL-BLDC-EEE614/include/BLDCDriveAndControlProject.h
+main.obj: F:/Dev/Cpp_Lib_For_PSIM/Projetos/Proj-micro/Tarefas/DSP/PROJETO-CTRL-BLDC-EEE614/include/sci_com.h
+main.obj: F:/Dev/Cpp_Lib_For_PSIM/Projetos/Proj-micro/Tarefas/DSP/PROJETO-CTRL-BLDC-EEE614/include/global_variables.h
 
-../main.c:
+../main.cpp:
 
 C:/ti/C2000Ware_26_00_00_00/device_support/f2837xd/common/include/F28x_Project.h:
 
@@ -204,4 +207,10 @@ C:/ti/C2000Ware_26_00_00_00/device_support/f2837xd/common/include/F2837xD_SysCtr
 C:/ti/C2000Ware_26_00_00_00/device_support/f2837xd/common/include/F2837xD_Upp_defines.h:
 
 C:/ti/C2000Ware_26_00_00_00/device_support/f2837xd/common/include/F2837xD_defaultisr.h:
+
+F:/Dev/Cpp_Lib_For_PSIM/Projetos/Proj-micro/Tarefas/DSP/PROJETO-CTRL-BLDC-EEE614/include/BLDCDriveAndControlProject.h:
+
+F:/Dev/Cpp_Lib_For_PSIM/Projetos/Proj-micro/Tarefas/DSP/PROJETO-CTRL-BLDC-EEE614/include/sci_com.h:
+
+F:/Dev/Cpp_Lib_For_PSIM/Projetos/Proj-micro/Tarefas/DSP/PROJETO-CTRL-BLDC-EEE614/include/global_variables.h:
 

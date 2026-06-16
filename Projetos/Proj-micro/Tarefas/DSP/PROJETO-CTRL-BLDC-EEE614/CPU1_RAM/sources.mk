@@ -107,5 +107,5 @@ S62_DEPS__QUOTED :=
 SUBDIRS := \
 . \
 TI \
-device \
+source \
 

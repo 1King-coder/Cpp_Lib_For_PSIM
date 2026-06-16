@@ -50,14 +50,7 @@ extern "C" {
         writeSerial(&x, sizeof(x));
         int bytesReceived = 0;
 
-        uint8_t * rxPtr = (uint8_t*) &y;
-
-        while (bytesReceived < sizeof(y) && timeout < 100000) {
-            bytesReceived += readSerial(rxPtr + bytesReceived, sizeof(y) - bytesReceived);
-            if (bytesReceived == 0) {
-                timeout++;
-            }
-        }
+        readSerial(&y, sizeof(y));
         out[0] = (double) y;
 
         *pnError = 0; //Success

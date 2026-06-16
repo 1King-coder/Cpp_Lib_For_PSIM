@@ -19,7 +19,12 @@ ORDERED_OBJS += \
 "./TI/F2837xD_PieVect.obj" \
 "./TI/F2837xD_SysCtrl.obj" \
 "./TI/F2837xD_usDelay.obj" \
-"./device/device.obj" \
+"./source/BLDCDriveAndControlProject.obj" \
+"./source/BLDC_basis.obj" \
+"./source/control_logics.obj" \
+"./source/eCap.obj" \
+"./source/pwm.obj" \
+"./source/sci_com.obj" \
 "../2837xD_RAM_lnk_cpu1.cmd" \
 "../F2837xD_Headers_nonBIOS_cpu1.cmd" \
 "C:/ti/C2000Ware_26_00_00_00/driverlib/f2837xd/driverlib/ccs/Debug/driverlib.lib" \
@@ -35,10 +40,10 @@ RMDIR := RMDIR /S/Q
 -include sources.mk
 -include subdir_vars.mk
 -include TI/subdir_vars.mk
--include device/subdir_vars.mk
+-include source/subdir_vars.mk
 -include subdir_rules.mk
 -include TI/subdir_rules.mk
--include device/subdir_rules.mk
+-include source/subdir_rules.mk
 -include objects.mk
 
 ifneq ($(MAKECMDGOALS),clean)
@@ -142,15 +147,16 @@ all: $(OBJS) $(CMD_SRCS) $(LIB_SRCS) $(GEN_CMDS)
 # Tool invocations
 PROJETO-CTRL-BLDC-EEE614.out: $(OBJS) $(CMD_SRCS) $(LIB_SRCS) $(GEN_CMDS)
 	@echo 'C2000 Linker - building target: "$@"'
-	"C:/ti/ccs2051/ccs/tools/compiler/ti-cgt-c2000_25.11.0.LTS/bin/cl2000" -v28 -ml -mt --cla_support=cla1 --float_support=fpu32 --tmu_support=tmu0 --vcu_support=vcu2 -Ooff --define=DEBUG --define=_DUAL_HEADERS --define=CPU1 --diag_suppress=10063 --diag_warning=225 --diag_wrap=off --display_error_number --abi=coffabi -z -m"PROJETO-CTRL-BLDC-EEE614.map" --stack_size=0x100 --warn_sections -i"C:/ti/ccs2051/ccs/tools/compiler/ti-cgt-c2000_25.11.0.LTS/lib" -i"C:/ti/ccs2051/ccs/tools/compiler/ti-cgt-c2000_25.11.0.LTS/include" --reread_libs --diag_wrap=off --display_error_number --xml_link_info="PROJETO-CTRL-BLDC-EEE614_linkInfo.xml" --rom_model -o "PROJETO-CTRL-BLDC-EEE614.out" $(ORDERED_OBJS)
+	"C:/ti/ccs2051/ccs/tools/compiler/ti-cgt-c2000_25.11.0.LTS/bin/cl2000" -v28 -ml -mt --cla_support=cla1 --float_support=fpu32 --tmu_support=tmu0 --vcu_support=vcu2 -Ooff --define=DEBUG --define=_DUAL_HEADERS --define=CPU1 --define=_LAUNCHXL_F28379D --diag_suppress=10063 --diag_warning=225 --diag_wrap=off --display_error_number --abi=coffabi -z -m"PROJETO-CTRL-BLDC-EEE614.map" --stack_size=0x100 --warn_sections -i"C:/ti/ccs2051/ccs/tools/compiler/ti-cgt-c2000_25.11.0.LTS/lib" -i"C:/ti/ccs2051/ccs/tools/compiler/ti-cgt-c2000_25.11.0.LTS/include" --reread_libs --diag_wrap=off --display_error_number --xml_link_info="PROJETO-CTRL-BLDC-EEE614_linkInfo.xml" --rom_model -o "PROJETO-CTRL-BLDC-EEE614.out" $(ORDERED_OBJS)
 	@echo 'Finished building target: "$@"'
 	@echo ' '
 
 # Other Targets
 clean:
 	-$(RM) $(EXE_OUTPUTS__QUOTED)
-	-$(RM) "main.obj" "TI\F2837xD_CodeStartBranch.obj" "TI\F2837xD_DefaultISR.obj" "TI\F2837xD_GlobalVariableDefs.obj" "TI\F2837xD_Gpio.obj" "TI\F2837xD_PieCtrl.obj" "TI\F2837xD_PieVect.obj" "TI\F2837xD_SysCtrl.obj" "TI\F2837xD_usDelay.obj" "device\device.obj" 
-	-$(RM) "main.d" "TI\F2837xD_DefaultISR.d" "TI\F2837xD_GlobalVariableDefs.d" "TI\F2837xD_Gpio.d" "TI\F2837xD_PieCtrl.d" "TI\F2837xD_PieVect.d" "TI\F2837xD_SysCtrl.d" "device\device.d" 
+	-$(RM) "main.obj" "TI\F2837xD_CodeStartBranch.obj" "TI\F2837xD_DefaultISR.obj" "TI\F2837xD_GlobalVariableDefs.obj" "TI\F2837xD_Gpio.obj" "TI\F2837xD_PieCtrl.obj" "TI\F2837xD_PieVect.obj" "TI\F2837xD_SysCtrl.obj" "TI\F2837xD_usDelay.obj" "source\BLDCDriveAndControlProject.obj" "source\BLDC_basis.obj" "source\control_logics.obj" "source\eCap.obj" "source\pwm.obj" "source\sci_com.obj" 
+	-$(RM) "TI\F2837xD_DefaultISR.d" "TI\F2837xD_GlobalVariableDefs.d" "TI\F2837xD_Gpio.d" "TI\F2837xD_PieCtrl.d" "TI\F2837xD_PieVect.d" "TI\F2837xD_SysCtrl.d" 
+	-$(RM) "main.d" "source\BLDCDriveAndControlProject.d" "source\BLDC_basis.d" "source\control_logics.d" "source\eCap.d" "source\pwm.d" "source\sci_com.d" 
 	-$(RM) "TI\F2837xD_CodeStartBranch.d" "TI\F2837xD_usDelay.d" 
 	-@echo ' '
 
