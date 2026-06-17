@@ -1,5 +1,5 @@
 #include "control_logics.h"
-#include "global_variables.h"
+#include "global_definitions.h"
 
 void PI (PI_CTS constants, float *y, float x, float *y1, float *x1, float T) {
     *y = constants.kp * (x - *x1) + constants.ki * T / 2 * (x + *x1) + *y1;

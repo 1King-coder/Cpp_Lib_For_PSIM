@@ -1,3 +1,4 @@
+#include "global_definitions.h"
 
 void scia_fifo_init(int receivedDataSize);
 void scia_init(void);

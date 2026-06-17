@@ -69,8 +69,13 @@ main.obj: C:/ti/C2000Ware_26_00_00_00/device_support/f2837xd/common/include/F283
 main.obj: C:/ti/C2000Ware_26_00_00_00/device_support/f2837xd/common/include/F2837xD_Upp_defines.h
 main.obj: C:/ti/C2000Ware_26_00_00_00/device_support/f2837xd/common/include/F2837xD_defaultisr.h
 main.obj: F:/Dev/Cpp_Lib_For_PSIM/Projetos/Proj-micro/Tarefas/DSP/PROJETO-CTRL-BLDC-EEE614/include/BLDCDriveAndControlProject.h
+main.obj: F:/Dev/Cpp_Lib_For_PSIM/Projetos/Proj-micro/Tarefas/DSP/PROJETO-CTRL-BLDC-EEE614/include/pwm.h
+main.obj: F:/Dev/Cpp_Lib_For_PSIM/Projetos/Proj-micro/Tarefas/DSP/PROJETO-CTRL-BLDC-EEE614/include/global_definitions.h
+main.obj: F:/Dev/Cpp_Lib_For_PSIM/Projetos/Proj-micro/Tarefas/DSP/PROJETO-CTRL-BLDC-EEE614/include/ecap1.h
+main.obj: F:/Dev/Cpp_Lib_For_PSIM/Projetos/Proj-micro/Tarefas/DSP/PROJETO-CTRL-BLDC-EEE614/include/global_definitions.h
 main.obj: F:/Dev/Cpp_Lib_For_PSIM/Projetos/Proj-micro/Tarefas/DSP/PROJETO-CTRL-BLDC-EEE614/include/sci_com.h
-main.obj: F:/Dev/Cpp_Lib_For_PSIM/Projetos/Proj-micro/Tarefas/DSP/PROJETO-CTRL-BLDC-EEE614/include/global_variables.h
+main.obj: F:/Dev/Cpp_Lib_For_PSIM/Projetos/Proj-micro/Tarefas/DSP/PROJETO-CTRL-BLDC-EEE614/include/global_definitions.h
+main.obj: F:/Dev/Cpp_Lib_For_PSIM/Projetos/Proj-micro/Tarefas/DSP/PROJETO-CTRL-BLDC-EEE614/include/global_definitions.h
 
 ../main.cpp:
 
@@ -210,7 +215,17 @@ C:/ti/C2000Ware_26_00_00_00/device_support/f2837xd/common/include/F2837xD_defaul
 
 F:/Dev/Cpp_Lib_For_PSIM/Projetos/Proj-micro/Tarefas/DSP/PROJETO-CTRL-BLDC-EEE614/include/BLDCDriveAndControlProject.h:
 
+F:/Dev/Cpp_Lib_For_PSIM/Projetos/Proj-micro/Tarefas/DSP/PROJETO-CTRL-BLDC-EEE614/include/pwm.h:
+
+F:/Dev/Cpp_Lib_For_PSIM/Projetos/Proj-micro/Tarefas/DSP/PROJETO-CTRL-BLDC-EEE614/include/global_definitions.h:
+
+F:/Dev/Cpp_Lib_For_PSIM/Projetos/Proj-micro/Tarefas/DSP/PROJETO-CTRL-BLDC-EEE614/include/ecap1.h:
+
+F:/Dev/Cpp_Lib_For_PSIM/Projetos/Proj-micro/Tarefas/DSP/PROJETO-CTRL-BLDC-EEE614/include/global_definitions.h:
+
 F:/Dev/Cpp_Lib_For_PSIM/Projetos/Proj-micro/Tarefas/DSP/PROJETO-CTRL-BLDC-EEE614/include/sci_com.h:
 
-F:/Dev/Cpp_Lib_For_PSIM/Projetos/Proj-micro/Tarefas/DSP/PROJETO-CTRL-BLDC-EEE614/include/global_variables.h:
+F:/Dev/Cpp_Lib_For_PSIM/Projetos/Proj-micro/Tarefas/DSP/PROJETO-CTRL-BLDC-EEE614/include/global_definitions.h:
+
+F:/Dev/Cpp_Lib_For_PSIM/Projetos/Proj-micro/Tarefas/DSP/PROJETO-CTRL-BLDC-EEE614/include/global_definitions.h:
 

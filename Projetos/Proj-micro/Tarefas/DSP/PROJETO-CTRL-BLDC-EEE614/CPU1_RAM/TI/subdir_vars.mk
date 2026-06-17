@@ -10,7 +10,10 @@ ASM_SRCS += \
 ../TI/F2837xD_usDelay.asm 
 
 C_SRCS += \
+../TI/F2837xD_Adc.c \
 ../TI/F2837xD_DefaultISR.c \
+../TI/F2837xD_ECap.c \
+../TI/F2837xD_EPwm.c \
 ../TI/F2837xD_GlobalVariableDefs.c \
 ../TI/F2837xD_Gpio.c \
 ../TI/F2837xD_PieCtrl.c \
@@ -18,7 +21,10 @@ C_SRCS += \
 ../TI/F2837xD_SysCtrl.c 
 
 C_DEPS += \
+./TI/F2837xD_Adc.d \
 ./TI/F2837xD_DefaultISR.d \
+./TI/F2837xD_ECap.d \
+./TI/F2837xD_EPwm.d \
 ./TI/F2837xD_GlobalVariableDefs.d \
 ./TI/F2837xD_Gpio.d \
 ./TI/F2837xD_PieCtrl.d \
@@ -26,8 +32,11 @@ C_DEPS += \
 ./TI/F2837xD_SysCtrl.d 
 
 OBJS += \
+./TI/F2837xD_Adc.obj \
 ./TI/F2837xD_CodeStartBranch.obj \
 ./TI/F2837xD_DefaultISR.obj \
+./TI/F2837xD_ECap.obj \
+./TI/F2837xD_EPwm.obj \
 ./TI/F2837xD_GlobalVariableDefs.obj \
 ./TI/F2837xD_Gpio.obj \
 ./TI/F2837xD_PieCtrl.obj \
@@ -40,8 +49,11 @@ ASM_DEPS += \
 ./TI/F2837xD_usDelay.d 
 
 OBJS__QUOTED += \
+"TI\F2837xD_Adc.obj" \
 "TI\F2837xD_CodeStartBranch.obj" \
 "TI\F2837xD_DefaultISR.obj" \
+"TI\F2837xD_ECap.obj" \
+"TI\F2837xD_EPwm.obj" \
 "TI\F2837xD_GlobalVariableDefs.obj" \
 "TI\F2837xD_Gpio.obj" \
 "TI\F2837xD_PieCtrl.obj" \
@@ -50,7 +62,10 @@ OBJS__QUOTED += \
 "TI\F2837xD_usDelay.obj" 
 
 C_DEPS__QUOTED += \
+"TI\F2837xD_Adc.d" \
 "TI\F2837xD_DefaultISR.d" \
+"TI\F2837xD_ECap.d" \
+"TI\F2837xD_EPwm.d" \
 "TI\F2837xD_GlobalVariableDefs.d" \
 "TI\F2837xD_Gpio.d" \
 "TI\F2837xD_PieCtrl.d" \
@@ -61,16 +76,19 @@ ASM_DEPS__QUOTED += \
 "TI\F2837xD_CodeStartBranch.d" \
 "TI\F2837xD_usDelay.d" 
 
-ASM_SRCS__QUOTED += \
-"../TI/F2837xD_CodeStartBranch.asm" \
-"../TI/F2837xD_usDelay.asm" 
-
 C_SRCS__QUOTED += \
+"../TI/F2837xD_Adc.c" \
 "../TI/F2837xD_DefaultISR.c" \
+"../TI/F2837xD_ECap.c" \
+"../TI/F2837xD_EPwm.c" \
 "../TI/F2837xD_GlobalVariableDefs.c" \
 "../TI/F2837xD_Gpio.c" \
 "../TI/F2837xD_PieCtrl.c" \
 "../TI/F2837xD_PieVect.c" \
 "../TI/F2837xD_SysCtrl.c" 
+
+ASM_SRCS__QUOTED += \
+"../TI/F2837xD_CodeStartBranch.asm" \
+"../TI/F2837xD_usDelay.asm" 
 
 

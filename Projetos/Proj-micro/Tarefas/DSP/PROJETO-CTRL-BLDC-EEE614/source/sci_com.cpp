@@ -1,5 +1,5 @@
 #include "sci_com.h"
-#include "global_variables.h"
+#include "global_definitions.h"
 #include "F28x_Project.h"
 
 

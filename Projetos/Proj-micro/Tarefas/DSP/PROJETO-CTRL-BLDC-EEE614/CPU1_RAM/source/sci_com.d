@@ -2,7 +2,7 @@
 
 source/sci_com.obj: ../source/sci_com.cpp
 source/sci_com.obj: F:/Dev/Cpp_Lib_For_PSIM/Projetos/Proj-micro/Tarefas/DSP/PROJETO-CTRL-BLDC-EEE614/include/sci_com.h
-source/sci_com.obj: F:/Dev/Cpp_Lib_For_PSIM/Projetos/Proj-micro/Tarefas/DSP/PROJETO-CTRL-BLDC-EEE614/include/global_variables.h
+source/sci_com.obj: F:/Dev/Cpp_Lib_For_PSIM/Projetos/Proj-micro/Tarefas/DSP/PROJETO-CTRL-BLDC-EEE614/include/global_definitions.h
 source/sci_com.obj: C:/ti/C2000Ware_26_00_00_00/device_support/f2837xd/common/include/F28x_Project.h
 source/sci_com.obj: C:/ti/C2000Ware_26_00_00_00/device_support/f2837xd/common/include/F2837xD_Cla_typedefs.h
 source/sci_com.obj: C:/ti/C2000Ware_26_00_00_00/device_support/f2837xd/headers/include/F2837xD_device.h
@@ -70,12 +70,13 @@ source/sci_com.obj: C:/ti/C2000Ware_26_00_00_00/device_support/f2837xd/common/in
 source/sci_com.obj: C:/ti/C2000Ware_26_00_00_00/device_support/f2837xd/common/include/F2837xD_SysCtrl_defines.h
 source/sci_com.obj: C:/ti/C2000Ware_26_00_00_00/device_support/f2837xd/common/include/F2837xD_Upp_defines.h
 source/sci_com.obj: C:/ti/C2000Ware_26_00_00_00/device_support/f2837xd/common/include/F2837xD_defaultisr.h
+source/sci_com.obj: F:/Dev/Cpp_Lib_For_PSIM/Projetos/Proj-micro/Tarefas/DSP/PROJETO-CTRL-BLDC-EEE614/include/global_definitions.h
 
 ../source/sci_com.cpp:
 
 F:/Dev/Cpp_Lib_For_PSIM/Projetos/Proj-micro/Tarefas/DSP/PROJETO-CTRL-BLDC-EEE614/include/sci_com.h:
 
-F:/Dev/Cpp_Lib_For_PSIM/Projetos/Proj-micro/Tarefas/DSP/PROJETO-CTRL-BLDC-EEE614/include/global_variables.h:
+F:/Dev/Cpp_Lib_For_PSIM/Projetos/Proj-micro/Tarefas/DSP/PROJETO-CTRL-BLDC-EEE614/include/global_definitions.h:
 
 C:/ti/C2000Ware_26_00_00_00/device_support/f2837xd/common/include/F28x_Project.h:
 
@@ -210,4 +211,6 @@ C:/ti/C2000Ware_26_00_00_00/device_support/f2837xd/common/include/F2837xD_SysCtr
 C:/ti/C2000Ware_26_00_00_00/device_support/f2837xd/common/include/F2837xD_Upp_defines.h:
 
 C:/ti/C2000Ware_26_00_00_00/device_support/f2837xd/common/include/F2837xD_defaultisr.h:
+
+F:/Dev/Cpp_Lib_For_PSIM/Projetos/Proj-micro/Tarefas/DSP/PROJETO-CTRL-BLDC-EEE614/include/global_definitions.h:
 

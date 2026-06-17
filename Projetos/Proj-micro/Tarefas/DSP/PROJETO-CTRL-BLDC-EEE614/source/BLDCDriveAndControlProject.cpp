@@ -1,24 +1,34 @@
 #include "F28x_Project.h"
 #include "sci_com.h"
 #include "control_logics.h"
-#include "pwm.h"
-#include "eCap.h"
 #include "BLDC_basis.h"
 #include "BLDCDriveAndControlProject.h"
-#include "global_variables.h"
+#include "global_definitions.h"
+
+
 
 
 
 namespace project {
+    BLDCDriveAndControlProject::BLDC_input_data circuit_data;
+    float i_in_ref = 0;
     float w_m_x1 = 0;
     float w_m_y1 = 0;
     float i_in_x1 = 0;
     float i_in_y1 = 0;
-    BLDCDriveAndControlProject::BLDCDriveAndControlProject (void) {
+    peripherals::PwmProj pwm;
+    peripherals::EcapProj ecap;
+    Uint32 captured_ticks = 0;
+    float sim_hall_sensor_freq_read = 0;
+    float w_m_rpm = 0;
+
+    BLDCDriveAndControlProject::BLDCDriveAndControlProject (void) 
+    {
         this->project_startup();
     }
 
-    void BLDCDriveAndControlProject::project_startup (void) {
+    void BLDCDriveAndControlProject::project_startup (void) 
+    {
         InitSysCtrl();
         InitGpio();
 
@@ -39,14 +49,16 @@ namespace project {
 
     }
 
-    void BLDCDriveAndControlProject::loop () {
+    void BLDCDriveAndControlProject::loop () 
+    {
         for (;;) {
             
         }
     }
 
-    void BLDCDriveAndControlProject::w_m_pi_control (project::BLDCDriveAndControlProject::BLDC_input_data *data, float *ref) {
-        float w_m_err = data->w_m_ref - data->w_m_feedback;
+    void BLDCDriveAndControlProject::w_m_pi_control (project::BLDCDriveAndControlProject::BLDC_input_data *data, float *ref) 
+    {
+        float w_m_err = data->w_m_ref - this->w_m_rpm;
         float i_in_ref;
         PI_CTS w_pi_cts, i_in_pi_cts;
 
@@ -67,6 +79,32 @@ namespace project {
         PI(i_in_pi_cts, ref, i_in_err, &i_in_y1, &i_in_x1, SAMPLE_FREQ);
     }
 
+    float BLDCDriveAndControlProject::calc_simulated_hall_sensor_freq (float w_m) 
+    {
+        return w_m / 60 * NUMBER_OF_MACHINE_POLE_PAIRS;
+    }
+
+    float BLDCDriveAndControlProject::calc_simulated_w_m_feedback (float freq) 
+    {
+        return freq * 60 / NUMBER_OF_MACHINE_POLE_PAIRS;
+    }
+
+    void BLDCDriveAndControlProject::setup_pwm (void) 
+    {
+        this->pwm.set_pwm_configuration(peripherals::PwmProj::triangle_interrupt_on_zero);
+        this->pwm.set_switching_frequency_Hz(0);
+        this->pwm.init();
+        this->pwm.set_gpio(1);
+        this->pwm.set_pwm_value(1, 0);
+        this->pwm.enable_pwm_output(1);
+    }
+
+    void BLDCDriveAndControlProject::setup_ecap (void) 
+    {
+        this->ecap.set_gpio(1, 24);
+        this->ecap.init_delta_mode(1);
+    }
+    
     
 }
 
