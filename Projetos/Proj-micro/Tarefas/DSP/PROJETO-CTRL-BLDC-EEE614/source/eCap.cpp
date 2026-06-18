@@ -17,8 +17,8 @@ namespace peripherals {
     {
         EALLOW;
         // 1. Configure pin as a standard asynchronous GPIO input
-        GPIO_SetupPinMux(gpio_pin, GPIO_MUX_CPU1, 0); 
-        GPIO_SetupPinOptions(gpio_pin, GPIO_INPUT, GPIO_ASYNC);
+        // GPIO_SetupPinMux(gpio_pin, GPIO_MUX_CPU1, 0); 
+        // GPIO_SetupPinOptions(gpio_pin, GPIO_INPUT, GPIO_ASYNC);
 
         // 2. On the F28379D, eCAP inputs are strictly routed through the Input X-BAR.
         // Documentation mapping: eCAP1 = INPUT7, eCAP2 = INPUT8, ..., eCAP4 = INPUT10
@@ -126,7 +126,7 @@ namespace peripherals {
     {
         unsigned int moduleIndex = module - 1;
         // In delta mode with wrap on CEVT1, the captured period resides strictly in CAP1
-        return this->eCapRegisters[moduleIndex]->TSCTR;
+        return this->eCapRegisters[moduleIndex]->CAP1;
     }
     
     void EcapProj::clear_interrupt_flag(const unsigned int module)

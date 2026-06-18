@@ -1,0 +1,62 @@
+[
+   {
+      "directory" : "F:/Dev/Cpp_Lib_For_PSIM/Projetos/Proj-micro/Tarefas/DSP/ecap_capture_pwm_xbar_cpu01/CPU1_RAM",
+      "command"   : "clang++ -I\"C:/ti/ccs2051/ccs/tools/compiler/ti-cgt-c2000_25.11.0.LTS/include\" -I\"C:/ti/C2000Ware_26_01_00_00/device_support/f2837xd/headers/include\" -I\"C:/ti/C2000Ware_26_01_00_00/device_support/f2837xd/common/include\" -DCPU1 -xc",
+      "file"      : "C:/ti/C2000Ware_26_01_00_00/device_support/f2837xd/examples/cpu1/ecap_capture_pwm_xbar/cpu01/ECap_Capture_Pwm_Xbar_cpu01.c"
+   },
+   {
+      "directory" : "F:/Dev/Cpp_Lib_For_PSIM/Projetos/Proj-micro/Tarefas/DSP/ecap_capture_pwm_xbar_cpu01/CPU1_RAM",
+      "command"   : "clang++ -I\"C:/ti/ccs2051/ccs/tools/compiler/ti-cgt-c2000_25.11.0.LTS/include\" -I\"C:/ti/C2000Ware_26_01_00_00/device_support/f2837xd/headers/include\" -I\"C:/ti/C2000Ware_26_01_00_00/device_support/f2837xd/common/include\" -DCPU1",
+      "file"      : "C:/ti/C2000Ware_26_01_00_00/device_support/f2837xd/common/source/F2837xD_CodeStartBranch.asm"
+   },
+   {
+      "directory" : "F:/Dev/Cpp_Lib_For_PSIM/Projetos/Proj-micro/Tarefas/DSP/ecap_capture_pwm_xbar_cpu01/CPU1_RAM",
+      "command"   : "clang++ -I\"C:/ti/ccs2051/ccs/tools/compiler/ti-cgt-c2000_25.11.0.LTS/include\" -I\"C:/ti/C2000Ware_26_01_00_00/device_support/f2837xd/headers/include\" -I\"C:/ti/C2000Ware_26_01_00_00/device_support/f2837xd/common/include\" -DCPU1 -xc",
+      "file"      : "C:/ti/C2000Ware_26_01_00_00/device_support/f2837xd/common/source/F2837xD_DefaultISR.c"
+   },
+   {
+      "directory" : "F:/Dev/Cpp_Lib_For_PSIM/Projetos/Proj-micro/Tarefas/DSP/ecap_capture_pwm_xbar_cpu01/CPU1_RAM",
+      "command"   : "clang++ -I\"C:/ti/ccs2051/ccs/tools/compiler/ti-cgt-c2000_25.11.0.LTS/include\" -I\"C:/ti/C2000Ware_26_01_00_00/device_support/f2837xd/headers/include\" -I\"C:/ti/C2000Ware_26_01_00_00/device_support/f2837xd/common/include\" -DCPU1 -xc",
+      "file"      : "C:/ti/C2000Ware_26_01_00_00/device_support/f2837xd/common/source/F2837xD_ECap.c"
+   },
+   {
+      "directory" : "F:/Dev/Cpp_Lib_For_PSIM/Projetos/Proj-micro/Tarefas/DSP/ecap_capture_pwm_xbar_cpu01/CPU1_RAM",
+      "command"   : "clang++ -I\"C:/ti/ccs2051/ccs/tools/compiler/ti-cgt-c2000_25.11.0.LTS/include\" -I\"C:/ti/C2000Ware_26_01_00_00/device_support/f2837xd/headers/include\" -I\"C:/ti/C2000Ware_26_01_00_00/device_support/f2837xd/common/include\" -DCPU1 -xc",
+      "file"      : "C:/ti/C2000Ware_26_01_00_00/device_support/f2837xd/common/source/F2837xD_EPwm.c"
+   },
+   {
+      "directory" : "F:/Dev/Cpp_Lib_For_PSIM/Projetos/Proj-micro/Tarefas/DSP/ecap_capture_pwm_xbar_cpu01/CPU1_RAM",
+      "command"   : "clang++ -I\"C:/ti/ccs2051/ccs/tools/compiler/ti-cgt-c2000_25.11.0.LTS/include\" -I\"C:/ti/C2000Ware_26_01_00_00/device_support/f2837xd/headers/include\" -I\"C:/ti/C2000Ware_26_01_00_00/device_support/f2837xd/common/include\" -DCPU1 -xc",
+      "file"      : "C:/ti/C2000Ware_26_01_00_00/device_support/f2837xd/headers/source/F2837xD_GlobalVariableDefs.c"
+   },
+   {
+      "directory" : "F:/Dev/Cpp_Lib_For_PSIM/Projetos/Proj-micro/Tarefas/DSP/ecap_capture_pwm_xbar_cpu01/CPU1_RAM",
+      "command"   : "clang++ -I\"C:/ti/ccs2051/ccs/tools/compiler/ti-cgt-c2000_25.11.0.LTS/include\" -I\"C:/ti/C2000Ware_26_01_00_00/device_support/f2837xd/headers/include\" -I\"C:/ti/C2000Ware_26_01_00_00/device_support/f2837xd/common/include\" -DCPU1 -xc",
+      "file"      : "C:/ti/C2000Ware_26_01_00_00/device_support/f2837xd/common/source/F2837xD_Gpio.c"
+   },
+   {
+      "directory" : "F:/Dev/Cpp_Lib_For_PSIM/Projetos/Proj-micro/Tarefas/DSP/ecap_capture_pwm_xbar_cpu01/CPU1_RAM",
+      "command"   : "clang++ -I\"C:/ti/ccs2051/ccs/tools/compiler/ti-cgt-c2000_25.11.0.LTS/include\" -I\"C:/ti/C2000Ware_26_01_00_00/device_support/f2837xd/headers/include\" -I\"C:/ti/C2000Ware_26_01_00_00/device_support/f2837xd/common/include\" -DCPU1 -xc",
+      "file"      : "C:/ti/C2000Ware_26_01_00_00/device_support/f2837xd/common/source/F2837xD_Ipc.c"
+   },
+   {
+      "directory" : "F:/Dev/Cpp_Lib_For_PSIM/Projetos/Proj-micro/Tarefas/DSP/ecap_capture_pwm_xbar_cpu01/CPU1_RAM",
+      "command"   : "clang++ -I\"C:/ti/ccs2051/ccs/tools/compiler/ti-cgt-c2000_25.11.0.LTS/include\" -I\"C:/ti/C2000Ware_26_01_00_00/device_support/f2837xd/headers/include\" -I\"C:/ti/C2000Ware_26_01_00_00/device_support/f2837xd/common/include\" -DCPU1 -xc",
+      "file"      : "C:/ti/C2000Ware_26_01_00_00/device_support/f2837xd/common/source/F2837xD_PieCtrl.c"
+   },
+   {
+      "directory" : "F:/Dev/Cpp_Lib_For_PSIM/Projetos/Proj-micro/Tarefas/DSP/ecap_capture_pwm_xbar_cpu01/CPU1_RAM",
+      "command"   : "clang++ -I\"C:/ti/ccs2051/ccs/tools/compiler/ti-cgt-c2000_25.11.0.LTS/include\" -I\"C:/ti/C2000Ware_26_01_00_00/device_support/f2837xd/headers/include\" -I\"C:/ti/C2000Ware_26_01_00_00/device_support/f2837xd/common/include\" -DCPU1 -xc",
+      "file"      : "C:/ti/C2000Ware_26_01_00_00/device_support/f2837xd/common/source/F2837xD_PieVect.c"
+   },
+   {
+      "directory" : "F:/Dev/Cpp_Lib_For_PSIM/Projetos/Proj-micro/Tarefas/DSP/ecap_capture_pwm_xbar_cpu01/CPU1_RAM",
+      "command"   : "clang++ -I\"C:/ti/ccs2051/ccs/tools/compiler/ti-cgt-c2000_25.11.0.LTS/include\" -I\"C:/ti/C2000Ware_26_01_00_00/device_support/f2837xd/headers/include\" -I\"C:/ti/C2000Ware_26_01_00_00/device_support/f2837xd/common/include\" -DCPU1 -xc",
+      "file"      : "C:/ti/C2000Ware_26_01_00_00/device_support/f2837xd/common/source/F2837xD_SysCtrl.c"
+   },
+   {
+      "directory" : "F:/Dev/Cpp_Lib_For_PSIM/Projetos/Proj-micro/Tarefas/DSP/ecap_capture_pwm_xbar_cpu01/CPU1_RAM",
+      "command"   : "clang++ -I\"C:/ti/ccs2051/ccs/tools/compiler/ti-cgt-c2000_25.11.0.LTS/include\" -I\"C:/ti/C2000Ware_26_01_00_00/device_support/f2837xd/headers/include\" -I\"C:/ti/C2000Ware_26_01_00_00/device_support/f2837xd/common/include\" -DCPU1",
+      "file"      : "C:/ti/C2000Ware_26_01_00_00/device_support/f2837xd/common/source/F2837xD_usDelay.asm"
+   }
+]

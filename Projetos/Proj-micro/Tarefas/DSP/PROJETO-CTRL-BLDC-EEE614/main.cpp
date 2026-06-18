@@ -6,17 +6,22 @@
 #include "global_definitions.h"
 
 project::BLDCDriveAndControlProject proj;
-
+Uint32 rxIsrCounter = 0;
+Uint32 epwm1IsrCounter = 0;
+Uint32 eCap1IsrCounter = 0;
 
 
 __interrupt void processDataReceiveINT (void) {
     receiveData(&proj.circuit_data, 12);
     proj.w_m_pi_control(&proj.circuit_data, &proj.i_in_ref);
     sendData(&proj.i_in_ref, 4);
+    
+    proj.pwm.enable_pwm_output(1); 
+
     SciaRegs.SCIFFRX.bit.RXFFOVRCLR = 1;
     SciaRegs.SCIFFRX.bit.RXFFINTCLR = 1;
     PieCtrlRegs.PIEACK.all = PIEACK_GROUP9;
-    
+    rxIsrCounter++;
 }
 
 __interrupt void simulateHallSensorPulses (void) 
@@ -30,6 +35,7 @@ __interrupt void simulateHallSensorPulses (void)
     EPwm2Regs.ETCLR.bit.INT = 1;
 
     PieCtrlRegs.PIEACK.all = PIEACK_GROUP3;
+    epwm1IsrCounter++;
 }
 
 __interrupt void getWmFromHallSensorPulses (void)
@@ -55,6 +61,7 @@ __interrupt void getWmFromHallSensorPulses (void)
     proj.ecap.clear_interrupt_flag(1);
 
     PieCtrlRegs.PIEACK.all = PIEACK_GROUP4;
+    eCap1IsrCounter++;
 }
 
 void main(void)

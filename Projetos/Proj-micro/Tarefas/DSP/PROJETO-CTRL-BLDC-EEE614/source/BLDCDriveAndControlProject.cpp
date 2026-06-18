@@ -101,7 +101,6 @@ namespace project {
         this->pwm.set_gpio(2);
         this->pwm.set_pwm_value(1, 0);
         this->pwm.set_pwm_value(2, 0);
-        this->pwm.enable_pwm_output(1);
         this->pwm.enable_pwm_output(2);
     }
 
