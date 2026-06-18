@@ -21,12 +21,13 @@ namespace peripherals {
         this->ePwmRegisters[11] = &EPwm12Regs;
         
 
-        this->pwmTimeBasePeriod = 0;
+        
 
         for (unsigned int moduleIndex = 0; moduleIndex < NUMBER_OF_PWM_MODULES; moduleIndex++)
         {
 
-            this->time_base_clock_Hz = DSP_CLOCK / (14 * 128);
+            this->time_base_clock_Hz[moduleIndex] = DSP_CLOCK;
+            this->pwmTimeBasePeriod[moduleIndex] = 0;
                     // / powi(2.0f, this->ePwmRegisters[moduleIndex]->TBCTL.bit.HSPCLKDIV)
                     // / powi(2.0f, this->ePwmRegisters[moduleIndex]->TBCTL.bit.CLKDIV);
         }
@@ -188,18 +189,36 @@ namespace peripherals {
         CpuSysRegs.PCLKCR0.bit.TBCLKSYNC = 1;
         EDIS;
     };
-    void PwmProj::set_switching_frequency_Hz(float switching_frequency) 
+
+    void PwmProj::config_pwm_divs (const unsigned int module, const unsigned int HSPCLKDIV, const unsigned int CLKDIV)
     {
-        this->pwmTimeBasePeriod = (Uint16) (this->time_base_clock_Hz / (switching_frequency * 4.0f));
+        unsigned int moduleIndex = module - 1;
+
+        /// High Speed Time-base Clock Prescale Bits
+        this->ePwmRegisters[moduleIndex]->TBCTL.bit.HSPCLKDIV = HSPCLKDIV;
+
+        /// High Speed Time-base Clock Prescale Bits; PS=1
+        this->ePwmRegisters[moduleIndex]->TBCTL.bit.CLKDIV = CLKDIV;
+
+        float hspclk_dividers[8] = {1.0f, 2.0f, 4.0f, 6.0f, 8.0f, 10.0f, 12.0f, 14.0f};
+        float hspclkdiv = hspclk_dividers[this->ePwmRegisters[moduleIndex]->TBCTL.bit.HSPCLKDIV];
+        float clkdiv = (float)(1 << this->ePwmRegisters[moduleIndex]->TBCTL.bit.CLKDIV);
         
-        this->switching_frequency_Hz = this->time_base_clock_Hz / (4.0f * (float) this->pwmTimeBasePeriod);
+        this->time_base_clock_Hz[moduleIndex] = DSP_CLOCK / hspclkdiv / clkdiv;
+    }
+
+    void PwmProj::set_switching_frequency_Hz(const unsigned int module, float switching_frequency) 
+    {
+        this->pwmTimeBasePeriod[module - 1] = (Uint16) (this->time_base_clock_Hz[module - 1] / (switching_frequency * 4.0f));
+        
+        this->switching_frequency_Hz[module - 1] = this->time_base_clock_Hz[module - 1] / (4.0f *  ((float)this->pwmTimeBasePeriod[module - 1]));
     };
     void PwmProj::set_pwm_value(const unsigned int module, float value) 
     {
-        this->ePwmRegisters[module - 1]->CMPA.bit.CMPA = (Uint16) ((float)this->pwmTimeBasePeriod * (1.0f - value) * 0.5f);
+        this->ePwmRegisters[module - 1]->CMPA.bit.CMPA = (Uint16) ((float)this->pwmTimeBasePeriod[module-1] * (1.0f - value) * 0.5f);
     };
 
-    void PwmProj::set_gpio (const unsigned int module) 
+    void PwmProj::set_gpio (const unsigned int module)
     {
         EALLOW;
         switch (module)
@@ -362,14 +381,8 @@ namespace peripherals {
     {
 
         unsigned int moduleIndex = module - 1;
-
-        /// High Speed Time-base Clock Prescale Bits
-        this->ePwmRegisters[moduleIndex]->TBCTL.bit.HSPCLKDIV = 7;
-
-        /// High Speed Time-base Clock Prescale Bits; PS=1
-        this->ePwmRegisters[moduleIndex]->TBCTL.bit.CLKDIV = 7;
         /// Set timer period
-        this->ePwmRegisters[moduleIndex]->TBPRD = this->pwmTimeBasePeriod;
+        this->ePwmRegisters[moduleIndex]->TBPRD = this->pwmTimeBasePeriod[moduleIndex];
 
         this->ePwmRegisters[moduleIndex]->TBCTL.bit.PRDLD = TB_SHADOW;
 
@@ -386,29 +399,15 @@ namespace peripherals {
         this->ePwmRegisters[moduleIndex]->TBCTR = 0;
 
         //  Enable INT
-        switch (module)
+        if (this->double_sampling_frequency)
         {
-        case 1:
-            this->ePwmRegisters[moduleIndex]->ETSEL.bit.INTSEL = ET_CTR_ZERO;
+            this->ePwmRegisters[moduleIndex]->ETSEL.bit.INTSEL = ET_CTR_PRDZERO;
             this->ePwmRegisters[moduleIndex]->ETSEL.bit.INTEN = 1;
-            break;
-
-        case 2:
-            if (this->double_sampling_frequency)
-            {
-                this->ePwmRegisters[moduleIndex]->ETSEL.bit.INTSEL = ET_CTR_PRD;
-                this->ePwmRegisters[moduleIndex]->ETSEL.bit.INTEN = 1;
-            }
-            else
-            {
-                this->ePwmRegisters[moduleIndex]->ETSEL.bit.INTEN = 0;
-            }
-
-            break;
-
-        default:
-            this->ePwmRegisters[moduleIndex]->ETSEL.bit.INTEN = 0;
-            break;
+        }
+        else
+        {
+            this->ePwmRegisters[moduleIndex]->ETSEL.bit.INTSEL = ET_CTR_PRD;
+            this->ePwmRegisters[moduleIndex]->ETSEL.bit.INTEN = 1;
         }
 
         /// Generate INT on 1st event

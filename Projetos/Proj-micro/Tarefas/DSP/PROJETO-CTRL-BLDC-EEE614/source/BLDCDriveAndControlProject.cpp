@@ -92,16 +92,22 @@ namespace project {
     void BLDCDriveAndControlProject::setup_pwm (void) 
     {
         this->pwm.set_pwm_configuration(peripherals::PwmProj::triangle_interrupt_on_zero);
-        this->pwm.set_switching_frequency_Hz(0);
+        this->pwm.config_pwm_divs(1, 7, 7);
+        this->pwm.set_switching_frequency_Hz(1, 0);
+        this->pwm.config_pwm_divs(2, 1, 0);
+        this->pwm.set_switching_frequency_Hz(2, 1e3);
         this->pwm.init();
         this->pwm.set_gpio(1);
+        this->pwm.set_gpio(2);
         this->pwm.set_pwm_value(1, 0);
+        this->pwm.set_pwm_value(2, 0);
         this->pwm.enable_pwm_output(1);
+        this->pwm.enable_pwm_output(2);
     }
 
     void BLDCDriveAndControlProject::setup_ecap (void) 
     {
-        this->ecap.set_gpio(1, 24);
+        this->ecap.set_gpio(1, 15);
         this->ecap.init_delta_mode(1);
     }
     

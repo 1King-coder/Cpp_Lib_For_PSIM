@@ -10,7 +10,6 @@ namespace peripherals {
         this->eCapRegisters[3] = &ECap4Regs;
         this->eCapRegisters[4] = &ECap5Regs;
         this->eCapRegisters[5] = &ECap6Regs;
-
         this->interruptsEnableBits.all = 0;
     }
 
@@ -22,7 +21,7 @@ namespace peripherals {
         GPIO_SetupPinOptions(gpio_pin, GPIO_INPUT, GPIO_ASYNC);
 
         // 2. On the F28379D, eCAP inputs are strictly routed through the Input X-BAR.
-        // Documentation mapping: eCAP1 = INPUT7, eCAP2 = INPUT8, ..., eCAP6 = INPUT12
+        // Documentation mapping: eCAP1 = INPUT7, eCAP2 = INPUT8, ..., eCAP4 = INPUT10
         switch (module)
         {
             case 1: 
@@ -36,12 +35,6 @@ namespace peripherals {
                 break;
             case 4: 
                 InputXbarRegs.INPUT10SELECT = gpio_pin; 
-                break;
-            case 5: 
-                InputXbarRegs.INPUT11SELECT = gpio_pin; 
-                break;
-            case 6: 
-                InputXbarRegs.INPUT12SELECT = gpio_pin; 
                 break;
             default: 
                 break;
@@ -62,10 +55,11 @@ namespace peripherals {
         this->eCapRegisters[moduleIndex]->ECCTL2.bit.CONT_ONESHT = 0;  // Continuous mode
         
         // Event 1 Configuration: Trigger on Rising edge, reset counter (Delta mode)
+        this->eCapRegisters[moduleIndex]->ECCTL1.bit.PRESCALE = 0;     // Divide by 1 (no prescale)
         this->eCapRegisters[moduleIndex]->ECCTL1.bit.CAP1POL = 0;      // Rising edge
         this->eCapRegisters[moduleIndex]->ECCTL1.bit.CTRRST1 = 1;      // Reset counter after Event 1
         this->eCapRegisters[moduleIndex]->ECCTL1.bit.CAPLDEN = 1;      // Enable CAP1-4 register loads
-        this->eCapRegisters[moduleIndex]->ECCTL1.bit.PRESCALE = 0;     // Divide by 1 (no prescale)
+
 
         // Set wrap-around at Event 1 (we only care about the period between 2 edges)
         this->eCapRegisters[moduleIndex]->ECCTL2.bit.STOP_WRAP = 0;    // Wrap after Capture Event 1
@@ -132,7 +126,7 @@ namespace peripherals {
     {
         unsigned int moduleIndex = module - 1;
         // In delta mode with wrap on CEVT1, the captured period resides strictly in CAP1
-        return this->eCapRegisters[moduleIndex]->CAP1;
+        return this->eCapRegisters[moduleIndex]->TSCTR;
     }
     
     void EcapProj::clear_interrupt_flag(const unsigned int module)

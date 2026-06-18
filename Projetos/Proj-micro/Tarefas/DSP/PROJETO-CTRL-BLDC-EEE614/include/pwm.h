@@ -9,9 +9,9 @@ namespace peripherals {
         public:
             PwmProj(void);
             volatile struct EPWM_REGS *ePwmRegisters[NUMBER_OF_PWM_MODULES];
-            Uint16 pwmTimeBasePeriod;
-            Uint16 switching_frequency_Hz;
-            float time_base_clock_Hz;
+            Uint16 pwmTimeBasePeriod[NUMBER_OF_PWM_MODULES];
+            Uint16 switching_frequency_Hz[NUMBER_OF_PWM_MODULES];
+            float time_base_clock_Hz[NUMBER_OF_PWM_MODULES];
             bool double_sampling_frequency;
             PINT isr_pointer[NUMBER_OF_PWM_MODULES];
             union
@@ -41,7 +41,8 @@ namespace peripherals {
             };
             void set_pwm_configuration(PresetConfigurations pwmPresetConfiguration);
             void init();
-            void set_switching_frequency_Hz(float switching_frequency);
+            void config_pwm_divs (const unsigned int module, const unsigned int HSPCLKDIV, const unsigned int CLKDIV);
+            void set_switching_frequency_Hz(const unsigned int module, float switching_frequency);
             void set_pwm_value(const unsigned int module, float value);
             void set_gpio(const unsigned int module);
             void set_interrupt(volatile PINT isrPtr, const unsigned int module);

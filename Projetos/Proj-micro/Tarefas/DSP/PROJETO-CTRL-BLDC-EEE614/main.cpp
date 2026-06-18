@@ -16,17 +16,18 @@ __interrupt void processDataReceiveINT (void) {
     SciaRegs.SCIFFRX.bit.RXFFOVRCLR = 1;
     SciaRegs.SCIFFRX.bit.RXFFINTCLR = 1;
     PieCtrlRegs.PIEACK.all = PIEACK_GROUP9;
+    
 }
 
 __interrupt void simulateHallSensorPulses (void) 
 {
-    proj.pwm.set_switching_frequency_Hz(proj.calc_simulated_hall_sensor_freq(proj.circuit_data.w_m_feedback));
+    proj.pwm.set_switching_frequency_Hz(1, proj.calc_simulated_hall_sensor_freq(proj.circuit_data.w_m_feedback));
     
-    EPwm1Regs.TBPRD = proj.pwm.pwmTimeBasePeriod; 
+    EPwm1Regs.TBPRD = proj.pwm.pwmTimeBasePeriod[0]; 
 
     proj.pwm.set_pwm_value(1, 0);
     
-    EPwm1Regs.ETCLR.bit.INT = 1;
+    EPwm2Regs.ETCLR.bit.INT = 1;
 
     PieCtrlRegs.PIEACK.all = PIEACK_GROUP3;
 }
@@ -39,13 +40,14 @@ __interrupt void getWmFromHallSensorPulses (void)
     // 2. Calculate the mechanical velocity (RPM) safely
     if (proj.captured_ticks > 0) 
     {
-        // Calculate electrical frequency (Hz)
         // f = SYSCLK / Ticks
         proj.sim_hall_sensor_freq_read = DSP_CLOCK / proj.captured_ticks;
         
         // Convert to Mechanical RPM
-        // RPM = (60 * f_electrical) / Pole_Pairs
         proj.w_m_rpm = proj.calc_simulated_w_m_feedback(proj.sim_hall_sensor_freq_read);
+    } else {
+        proj.w_m_rpm = 0;
+        proj.sim_hall_sensor_freq_read = 0;
     }
     
 
@@ -58,13 +60,14 @@ __interrupt void getWmFromHallSensorPulses (void)
 void main(void)
 {
     set_interrupt(&PieVectTable.SCIA_RX_INT, processDataReceiveINT, M_INT9, &PieCtrlRegs.PIEIER9.all, (1 << 0));
-    proj.pwm.set_interrupt(simulateHallSensorPulses, 1);
+    proj.pwm.set_interrupt(simulateHallSensorPulses, 2);
     proj.setup_pwm();
     proj.pwm.enable_interrupt();
     proj.ecap.set_interrupt(getWmFromHallSensorPulses, 1);
     proj.setup_ecap();
     proj.ecap.enable_interrupt();
     EINT;
+    ERTM;
     proj.loop();
 
 }
