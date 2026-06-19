@@ -12,8 +12,14 @@ namespace project {
                 float w_m_feedback;
                 float i_in_feedback;  
             };
+
+            struct DSP_Response {
+                float ref;
+                float w_m_calc;
+            };
             float w_m_x1, w_m_y1, i_in_x1, i_in_y1, i_in_ref;
             BLDC_input_data circuit_data;
+            DSP_Response response;
             peripherals::PwmProj pwm;
             peripherals::EcapProj ecap;
             Uint32 captured_ticks;

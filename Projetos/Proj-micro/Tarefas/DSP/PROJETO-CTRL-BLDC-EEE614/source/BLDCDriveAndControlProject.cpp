@@ -7,10 +7,9 @@
 
 
 
-
-
 namespace project {
     BLDCDriveAndControlProject::BLDC_input_data circuit_data;
+    BLDCDriveAndControlProject::DSP_Response response;
     float i_in_ref = 0;
     float w_m_x1 = 0;
     float w_m_y1 = 0;
@@ -51,12 +50,13 @@ namespace project {
 
     void BLDCDriveAndControlProject::loop () 
     {
+        
         for (;;) {
-            
+
         }
     }
 
-    void BLDCDriveAndControlProject::w_m_pi_control (project::BLDCDriveAndControlProject::BLDC_input_data *data, float *ref) 
+    void BLDCDriveAndControlProject::w_m_pi_control (BLDCDriveAndControlProject::BLDC_input_data *data, float *ref) 
     {
         float w_m_err = data->w_m_ref - this->w_m_rpm;
         float i_in_ref;
@@ -101,7 +101,6 @@ namespace project {
         this->pwm.set_gpio(2);
         this->pwm.set_pwm_value(1, 0);
         this->pwm.set_pwm_value(2, 0);
-        this->pwm.enable_pwm_output(2);
     }
 
     void BLDCDriveAndControlProject::setup_ecap (void) 

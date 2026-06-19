@@ -68,6 +68,7 @@ namespace peripherals {
         // Enable Interrupt on Capture Event 1
         this->eCapRegisters[moduleIndex]->ECEINT.bit.CEVT1 = 1;
 
+
         // Start the counter
         this->eCapRegisters[moduleIndex]->ECCTL2.bit.TSCTRSTOP = 1;
         EDIS;

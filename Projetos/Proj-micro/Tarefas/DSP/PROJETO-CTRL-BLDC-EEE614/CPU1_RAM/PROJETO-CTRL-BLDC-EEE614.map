@@ -1,7 +1,7 @@
 ******************************************************************************
              TMS320C2000 Linker PC v25.11.0                    
 ******************************************************************************
->> Linked Thu Jun 18 00:04:59 2026
+>> Linked Fri Jun 19 01:09:32 2026
 
 OUTPUT FILE NAME:   <PROJETO-CTRL-BLDC-EEE614.out>
 ENTRY POINT SYMBOL: "_c_int00"  address: 0000879d
@@ -16,7 +16,7 @@ PAGE 0:
   RAMM0                 00000123   000002dd  00000094  00000249  RWIX
   RAMLS0                00008000   00000800  000007ff  00000001  RWIX
   RAMLS1                00008800   00000800  000007ff  00000001  RWIX
-  RAMLS2                00009000   00000800  0000037d  00000483  RWIX
+  RAMLS2                00009000   00000800  0000037f  00000481  RWIX
   RAMLS3                00009800   00000800  00000000  00000800  RWIX
   RAMLS4                0000a000   00000800  00000000  00000800  RWIX
   RAMD0                 0000b000   00000800  00000800  00000000  RWIX
@@ -556,8 +556,8 @@ GpioDataRegsFile
                   0000addc    00000002                       : _lock.c.obj (.ebss:__unlock)
                   0000adde    00000002                       : vars.c.obj (.ebss)
                   0000ade0    00000020     --HOLE--
-                  0000ae00    000000d4     main.obj (.ebss)
-                  0000aed4    0000002c     --HOLE--
+                  0000ae00    000000d8     main.obj (.ebss)
+                  0000aed8    00000028     --HOLE--
                   0000af00    000000a4     BLDCDriveAndControlProject.obj (.ebss)
 
 .TI.ramfunc 
@@ -701,17 +701,17 @@ UidRegsFile
                   00008fbf    00000039     main.obj (.text)
                   00008ff8    00000007     rts2800_fpu32.lib : memset.c.obj (.text)
 
-.text.3    0    00009000    0000037d     
-                  00009000    00000123     BLDCDriveAndControlProject.obj (.text)
-                  00009123    00000102     main.obj (.text:retain)
-                  00009225    00000054     control_logics.obj (.text)
-                  00009279    00000029     rts2800_fpu32.lib : exit.c.obj (.text)
-                  000092a2    00000028     F2837xD_PieCtrl.obj (.text)
-                  000092ca    00000028     global_definitions.obj (.text)
-                  000092f2    00000026     F2837xD_PieVect.obj (.text)
-                  00009318    00000024     rts2800_fpu32.lib : cpy_tbl.c.obj (.text)
-                  0000933c    00000021                       : new.c.obj (.text)
-                  0000935d    00000020                       : memcpy.c.obj (.text)
+.text.3    0    00009000    0000037f     
+                  00009000    0000011d     BLDCDriveAndControlProject.obj (.text)
+                  0000911d    0000010a     main.obj (.text:retain)
+                  00009227    00000054     control_logics.obj (.text)
+                  0000927b    00000029     rts2800_fpu32.lib : exit.c.obj (.text)
+                  000092a4    00000028     F2837xD_PieCtrl.obj (.text)
+                  000092cc    00000028     global_definitions.obj (.text)
+                  000092f4    00000026     F2837xD_PieVect.obj (.text)
+                  0000931a    00000024     rts2800_fpu32.lib : cpy_tbl.c.obj (.text)
+                  0000933e    00000021                       : new.c.obj (.text)
+                  0000935f    00000020                       : memcpy.c.obj (.text)
 
 .text.4    0    0000b000    00000800     
                   0000b000    000005a1     pwm.obj (.text)
@@ -724,9 +724,9 @@ MODULE SUMMARY
        Module                           code   initialized data   uninitialized data
        ------                           ----   ----------------   ------------------
     .\
-       main.obj                         315    17                 212               
+       main.obj                         323    17                 216               
     +--+--------------------------------+------+------------------+--------------------+
-       Total:                           315    17                 212               
+       Total:                           323    17                 216               
                                                                                     
     .\TI\
        F2837xD_GlobalVariableDefs.obj   0      0                  9870              
@@ -742,13 +742,13 @@ MODULE SUMMARY
                                                                                     
     .\source\
        pwm.obj                          1441   64                 0                 
-       BLDCDriveAndControlProject.obj   291    42                 164               
+       BLDCDriveAndControlProject.obj   285    42                 164               
        ecap.obj                         378    0                  0                 
        sci_com.obj                      158    0                  0                 
        control_logics.obj               84     0                  0                 
        global_definitions.obj           40     0                  0                 
     +--+--------------------------------+------+------------------+--------------------+
-       Total:                           2392   106                164               
+       Total:                           2386   106                164               
                                                                                     
     C:\ti\ccs2051\ccs\tools\compiler\ti-cgt-c2000_25.11.0.LTS\lib\rts2800_fpu32.lib
        memory.c.obj                     652    4                  4                 
@@ -771,7 +771,7 @@ MODULE SUMMARY
        Heap:                            0      0                  1024              
        Stack:                           0      0                  256               
     +--+--------------------------------+------+------------------+--------------------+
-       Grand Total:                     7041   604                11542             
+       Grand Total:                     7043   604                11546             
 
 
 GLOBAL DATA SYMBOLS: SORTED BY DATA PAGE
@@ -955,8 +955,9 @@ address     data page           name
 0000af0a     2bc (0000af00)     _captured_ticks__7project
 0000af0c     2bc (0000af00)     _sim_hall_sensor_freq_read__7project
 0000af0e     2bc (0000af00)     _w_m_rpm__7project
-0000af10     2bc (0000af00)     _circuit_data__7project
-0000af16     2bc (0000af00)     _ecap__7project
+0000af10     2bc (0000af00)     _response__7project
+0000af14     2bc (0000af00)     _circuit_data__7project
+0000af1a     2bc (0000af00)     _ecap__7project
 
 0000af40     2bd (0000af40)     _pwm__7project
 
@@ -1009,7 +1010,7 @@ GLOBAL SYMBOLS: SORTED ALPHABETICALLY BY Name
 page  address   name                                                                                              
 ----  -------   ----                                                                                              
 abs   ffffffff  .text                                                                                             
-0     00009279  C$$EXIT                                                                                           
+0     0000927b  C$$EXIT                                                                                           
 0     00008f37  FS$$DIV                                                                                           
 0     000080be  _ADCA1_ISR                                                                                        
 0     0000833e  _ADCA2_ISR                                                                                        
@@ -1170,7 +1171,7 @@ abs   ffffffff  .text
 1     00047000  _Emif1Regs                                                                                        
 1     0005f4a0  _Emif2ConfigRegs                                                                                  
 1     00047800  _Emif2Regs                                                                                        
-0     000092c1  _EnableInterrupts                                                                                 
+0     000092c3  _EnableInterrupts                                                                                 
 0     000001b4  _F28x_usDelay                                                                                     
 0     00008528  _FLASH_CORRECTABLE_ERROR_ISR                                                                      
 0     000083fc  _FPU_OVERFLOW_ISR                                                                                 
@@ -1210,8 +1211,8 @@ abs   ffffffff  .text
 0     00008ae0  _InitAuxPll                                                                                       
 0     0000b5a1  _InitGpio                                                                                         
 0     00008820  _InitPeripheralClocks                                                                             
-0     000092a2  _InitPieCtrl                                                                                      
-0     000092f2  _InitPieVectTable                                                                                 
+0     000092a4  _InitPieCtrl                                                                                      
+0     000092f4  _InitPieVectTable                                                                                 
 0     00008800  _InitSysCtrl                                                                                      
 0     000088f1  _InitSysPll                                                                                       
 1     00007900  _InputXbarRegs                                                                                    
@@ -1229,7 +1230,7 @@ abs   ffffffff  .text
 1     00007060  _NmiIntruptRegs                                                                                   
 1     00007a80  _OutputXbarRegs                                                                                   
 0     00008564  _PIE_RESERVED_ISR                                                                                 
-0     00009225  _PI__F6PI_CTSPffN22T3                                                                             
+0     00009227  _PI__F6PI_CTSPffN22T3                                                                             
 1     00000ce0  _PieCtrlRegs                                                                                      
 1     00000d00  _PieVectTable                                                                                     
 1     0000ac00  _PieVectTableInit                                                                                 
@@ -1323,9 +1324,9 @@ abs   ffffffff  ___c_args__
 0     00009000  ___ct__Q2_7project26BLDCDriveAndControlProjectFv                                                  
 0     000087fd  ___default_new_handler__Fv                                                                        
 abs   ffffffff  ___etext__                                                                                        
-0     0000933c  ___nw__FUl                                                                                        
+0     0000933e  ___nw__FUl                                                                                        
 0     000001ae  ___pinit__                                                                                        
-0     0000911a  ___sti___30_BLDCDriveAndControlProject_cpp_c4b5f932                                               
+0     00009114  ___sti___30_BLDCDriveAndControlProject_cpp_c4b5f932                                               
 0     00008ff3  ___sti___8_main_cpp_proj                                                                          
 abs   ffffffff  ___text__                                                                                         
 0     0000b7e5  __args_main                                                                                       
@@ -1339,27 +1340,27 @@ abs   ffffffff  ___text__
 0     000087fe  __system_post_cinit                                                                               
 0     000087fb  __system_pre_init                                                                                 
 1     0000addc  __unlock                                                                                          
-0     00009279  _abort                                                                                            
+0     0000927b  _abort                                                                                            
 0     00008e55  _aligned_alloc                                                                                    
 0     0000879d  _c_int00                                                                                          
 0     000090a3  _calc_simulated_hall_sensor_freq__Q2_7project26BLDCDriveAndControlProjectFf                       
 0     000090af  _calc_simulated_w_m_feedback__Q2_7project26BLDCDriveAndControlProjectFf                           
 0     00008e28  _calloc                                                                                           
 1     0000af0a  _captured_ticks__7project                                                                         
-1     0000af10  _circuit_data__7project                                                                           
+1     0000af14  _circuit_data__7project                                                                           
 0     000086e5  _clear_interrupt_flag__Q2_11peripherals8EcapProjFUi                                               
 0     0000b09d  _config_pwm_divs__Q2_11peripherals7PwmProjFUiN21                                                  
-0     00009318  _copy_in                                                                                          
+0     0000931a  _copy_in                                                                                          
 0     0000b32c  _disable_pwm_output__Q2_11peripherals7PwmProjFUi                                                  
 1     0000ae04  _eCap1IsrCounter                                                                                  
-1     0000af16  _ecap__7project                                                                                   
+1     0000af1a  _ecap__7project                                                                                   
 0     0000b340  _enable_interrupt__Q2_11peripherals7PwmProjFv                                                     
 0     0000869b  _enable_interrupt__Q2_11peripherals8EcapProjFv                                                    
 0     0000b318  _enable_pwm_output__Q2_11peripherals7PwmProjFUi                                                   
 1     0000ae02  _epwm1IsrCounter                                                                                  
-0     0000927b  _exit                                                                                             
+0     0000927d  _exit                                                                                             
 0     00008cd6  _free                                                                                             
-0     000091c8  _getWmFromHallSensorPulses__Fv                                                                    
+0     000091c6  _getWmFromHallSensorPulses__Fv                                                                    
 0     000086d7  _get_period__Q2_11peripherals8EcapProjFUi                                                         
 1     0000af00  _i_in_ref__7project                                                                               
 1     0000af06  _i_in_x1__7project                                                                                
@@ -1371,16 +1372,17 @@ abs   ffffffff  ___text__
 0     00008fbf  _main                                                                                             
 0     00008cab  _malloc                                                                                           
 0     00008e55  _memalign                                                                                         
-0     0000935d  _memcpy                                                                                           
+0     0000935f  _memcpy                                                                                           
 0     00008ff8  _memset                                                                                           
 0     00008e24  _minit                                                                                            
-0     000092dc  _powi__FfUs                                                                                       
-0     00009123  _processDataReceiveINT__Fv                                                                        
+0     000092de  _powi__FfUs                                                                                       
+0     0000911d  _processDataReceiveINT__Fv                                                                        
 1     0000ae40  _proj                                                                                             
 0     0000901a  _project_startup__Q2_7project26BLDCDriveAndControlProjectFv                                       
 1     0000af40  _pwm__7project                                                                                    
 0     00008da0  _realloc                                                                                          
 0     0000878b  _receiveData__FPvi                                                                                
+1     0000af10  _response__7project                                                                               
 1     0000ae00  _rxIsrCounter                                                                                     
 0     00008744  _scia_com_init__Fv                                                                                
 0     00008757  _scia_fifo_init__Fi                                                                               
@@ -1389,16 +1391,16 @@ abs   ffffffff  ___text__
 0     0000b559  _setSynchronizationWithModule1__Q2_11peripherals7PwmProjFUib                                      
 0     0000b178  _set_gpio__Q2_11peripherals7PwmProjFUi                                                            
 0     00008620  _set_gpio__Q2_11peripherals8EcapProjFUiT1                                                         
-0     000092ca  _set_interrupt__FPVPFKv_vPFKv_vUiPVUiT3                                                           
+0     000092cc  _set_interrupt__FPVPFKv_vPFKv_vUiPVUiT3                                                           
 0     0000b287  _set_interrupt__Q2_11peripherals7PwmProjFPFKv_vUi                                                 
 0     00008646  _set_interrupt__Q2_11peripherals8EcapProjFPFKv_vUi                                                
 0     0000b151  _set_pwm_value__Q2_11peripherals7PwmProjFUif                                                      
 0     0000b10f  _set_switching_frequency_Hz__Q2_11peripherals7PwmProjFUif                                         
 0     000086ff  _setup_baud__Ff                                                                                   
-0     00009109  _setup_ecap__Q2_7project26BLDCDriveAndControlProjectFv                                            
+0     00009103  _setup_ecap__Q2_7project26BLDCDriveAndControlProjectFv                                            
 0     000090bb  _setup_pwm__Q2_7project26BLDCDriveAndControlProjectFv                                             
 1     0000af0c  _sim_hall_sensor_freq_read__7project                                                              
-0     00009177  _simulateHallSensorPulses__Fv                                                                     
+0     00009175  _simulateHallSensorPulses__Fv                                                                     
 1     0000af0e  _w_m_rpm__7project                                                                                
 1     0000af02  _w_m_x1__7project                                                                                 
 1     0000af04  _w_m_y1__7project                                                                                 
@@ -1619,23 +1621,23 @@ page  address   name
 0     000090a3  _calc_simulated_hall_sensor_freq__Q2_7project26BLDCDriveAndControlProjectFf                       
 0     000090af  _calc_simulated_w_m_feedback__Q2_7project26BLDCDriveAndControlProjectFf                           
 0     000090bb  _setup_pwm__Q2_7project26BLDCDriveAndControlProjectFv                                             
-0     00009109  _setup_ecap__Q2_7project26BLDCDriveAndControlProjectFv                                            
-0     0000911a  ___sti___30_BLDCDriveAndControlProject_cpp_c4b5f932                                               
-0     00009123  _processDataReceiveINT__Fv                                                                        
-0     00009177  _simulateHallSensorPulses__Fv                                                                     
-0     000091c8  _getWmFromHallSensorPulses__Fv                                                                    
-0     00009225  _PI__F6PI_CTSPffN22T3                                                                             
-0     00009279  C$$EXIT                                                                                           
-0     00009279  _abort                                                                                            
-0     0000927b  _exit                                                                                             
-0     000092a2  _InitPieCtrl                                                                                      
-0     000092c1  _EnableInterrupts                                                                                 
-0     000092ca  _set_interrupt__FPVPFKv_vPFKv_vUiPVUiT3                                                           
-0     000092dc  _powi__FfUs                                                                                       
-0     000092f2  _InitPieVectTable                                                                                 
-0     00009318  _copy_in                                                                                          
-0     0000933c  ___nw__FUl                                                                                        
-0     0000935d  _memcpy                                                                                           
+0     00009103  _setup_ecap__Q2_7project26BLDCDriveAndControlProjectFv                                            
+0     00009114  ___sti___30_BLDCDriveAndControlProject_cpp_c4b5f932                                               
+0     0000911d  _processDataReceiveINT__Fv                                                                        
+0     00009175  _simulateHallSensorPulses__Fv                                                                     
+0     000091c6  _getWmFromHallSensorPulses__Fv                                                                    
+0     00009227  _PI__F6PI_CTSPffN22T3                                                                             
+0     0000927b  C$$EXIT                                                                                           
+0     0000927b  _abort                                                                                            
+0     0000927d  _exit                                                                                             
+0     000092a4  _InitPieCtrl                                                                                      
+0     000092c3  _EnableInterrupts                                                                                 
+0     000092cc  _set_interrupt__FPVPFKv_vPFKv_vUiPVUiT3                                                           
+0     000092de  _powi__FfUs                                                                                       
+0     000092f4  _InitPieVectTable                                                                                 
+0     0000931a  _copy_in                                                                                          
+0     0000933e  ___nw__FUl                                                                                        
+0     0000935f  _memcpy                                                                                           
 0     0000b000  ___ct__Q2_11peripherals7PwmProjFv                                                                 
 0     0000b067  ___CPR94__set_pwm_configuration__Q2_11peripherals7PwmProjFQ3_J26JJ39J20PresetConfigurations       
 0     0000b07d  _init__Q2_11peripherals7PwmProjFv                                                                 
@@ -1774,8 +1776,9 @@ page  address   name
 1     0000af0a  _captured_ticks__7project                                                                         
 1     0000af0c  _sim_hall_sensor_freq_read__7project                                                              
 1     0000af0e  _w_m_rpm__7project                                                                                
-1     0000af10  _circuit_data__7project                                                                           
-1     0000af16  _ecap__7project                                                                                   
+1     0000af10  _response__7project                                                                               
+1     0000af14  _circuit_data__7project                                                                           
+1     0000af1a  _ecap__7project                                                                                   
 1     0000af40  _pwm__7project                                                                                    
 1     00047000  _Emif1Regs                                                                                        
 1     00047800  _Emif2Regs                                                                                        
@@ -1813,4 +1816,4 @@ abs   ffffffff  ___text__
 abs   ffffffff  binit                                                                                             
 abs   ffffffff  etext                                                                                             
 
-[399 symbols]
+[400 symbols]

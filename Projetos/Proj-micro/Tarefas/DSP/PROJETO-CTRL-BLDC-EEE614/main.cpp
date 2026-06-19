@@ -5,6 +5,7 @@
 #include "sci_com.h"
 #include "global_definitions.h"
 
+
 project::BLDCDriveAndControlProject proj;
 Uint32 rxIsrCounter = 0;
 Uint32 epwm1IsrCounter = 0;
@@ -13,10 +14,12 @@ Uint32 eCap1IsrCounter = 0;
 
 __interrupt void processDataReceiveINT (void) {
     receiveData(&proj.circuit_data, 12);
-    proj.w_m_pi_control(&proj.circuit_data, &proj.i_in_ref);
-    sendData(&proj.i_in_ref, 4);
+    proj.w_m_pi_control(&proj.circuit_data, &proj.response.ref);
+    sendData(&proj.response, 8);
+    if (rxIsrCounter == 0) {
+        proj.pwm.enable_pwm_output(1); 
+    }
     
-    proj.pwm.enable_pwm_output(1); 
 
     SciaRegs.SCIFFRX.bit.RXFFOVRCLR = 1;
     SciaRegs.SCIFFRX.bit.RXFFINTCLR = 1;
@@ -33,8 +36,8 @@ __interrupt void simulateHallSensorPulses (void)
     proj.pwm.set_pwm_value(1, 0);
     
     EPwm2Regs.ETCLR.bit.INT = 1;
-
     PieCtrlRegs.PIEACK.all = PIEACK_GROUP3;
+    
     epwm1IsrCounter++;
 }
 
@@ -55,6 +58,7 @@ __interrupt void getWmFromHallSensorPulses (void)
         proj.w_m_rpm = 0;
         proj.sim_hall_sensor_freq_read = 0;
     }
+    proj.response.w_m_calc = proj.w_m_rpm;
     
 
     // 3. Clear the eCAP module's internal interrupt flags
