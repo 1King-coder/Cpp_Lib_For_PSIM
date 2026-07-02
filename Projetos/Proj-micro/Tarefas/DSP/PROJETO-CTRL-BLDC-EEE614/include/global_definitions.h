@@ -9,10 +9,12 @@
 #define I_PI_HLIMIT ((float) 36.0f)
 #define I_PI_LLIMIT ((float) 0)
 #define SAMPLE_FREQ ((float) 1/(1e3))
-#define RECEIVED_DATA_SIZE ((int) 12)
+#define IS_USING_MODBUS ((bool) 1)
+#define RECEIVED_DATA_SIZE ((int) (IS_USING_MODBUS ? 1 : 12))
 #define NUMBER_OF_PWM_MODULES ((unsigned int) 12)
 #define NUMBER_OF_MACHINE_POLE_PAIRS ((unsigned int) 10)
 #define NUMBER_OF_ECAP_MODULES ((unsigned int) 6)
+#define NUM_HOLDING_REGS 10
 
 #include "F28x_Project.h"
 void set_interrupt (volatile PINT *pieVectorDest, PINT newIsr, 

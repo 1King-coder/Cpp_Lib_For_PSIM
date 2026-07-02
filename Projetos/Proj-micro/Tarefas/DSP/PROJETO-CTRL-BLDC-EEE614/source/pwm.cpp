@@ -215,7 +215,7 @@ namespace peripherals {
     };
     void PwmProj::set_pwm_value(const unsigned int module, float value) 
     {
-        this->ePwmRegisters[module - 1]->CMPA.bit.CMPA = (Uint16) ((float)this->pwmTimeBasePeriod[module-1] * (1.0f - value) * 0.5f);
+        this->ePwmRegisters[module - 1]->CMPA.bit.CMPA = (Uint16) ((float)this->pwmTimeBasePeriod[module-1] * (1.0f + value) * 0.5f);
     };
 
     void PwmProj::set_gpio (const unsigned int module)

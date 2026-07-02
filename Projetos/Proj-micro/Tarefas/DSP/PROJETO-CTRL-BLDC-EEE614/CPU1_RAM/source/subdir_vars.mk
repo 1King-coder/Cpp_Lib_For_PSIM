@@ -11,6 +11,7 @@ CPP_SRCS += \
 ../source/control_logics.cpp \
 ../source/ecap.cpp \
 ../source/global_definitions.cpp \
+../source/modbus.cpp \
 ../source/pwm.cpp \
 ../source/sci_com.cpp 
 
@@ -20,6 +21,7 @@ OBJS += \
 ./source/control_logics.obj \
 ./source/ecap.obj \
 ./source/global_definitions.obj \
+./source/modbus.obj \
 ./source/pwm.obj \
 ./source/sci_com.obj 
 
@@ -29,6 +31,7 @@ CPP_DEPS += \
 ./source/control_logics.d \
 ./source/ecap.d \
 ./source/global_definitions.d \
+./source/modbus.d \
 ./source/pwm.d \
 ./source/sci_com.d 
 
@@ -38,6 +41,7 @@ OBJS__QUOTED += \
 "source\control_logics.obj" \
 "source\ecap.obj" \
 "source\global_definitions.obj" \
+"source\modbus.obj" \
 "source\pwm.obj" \
 "source\sci_com.obj" 
 
@@ -47,6 +51,7 @@ CPP_DEPS__QUOTED += \
 "source\control_logics.d" \
 "source\ecap.d" \
 "source\global_definitions.d" \
+"source\modbus.d" \
 "source\pwm.d" \
 "source\sci_com.d" 
 
@@ -56,6 +61,7 @@ CPP_SRCS__QUOTED += \
 "../source/control_logics.cpp" \
 "../source/ecap.cpp" \
 "../source/global_definitions.cpp" \
+"../source/modbus.cpp" \
 "../source/pwm.cpp" \
 "../source/sci_com.cpp" 
 

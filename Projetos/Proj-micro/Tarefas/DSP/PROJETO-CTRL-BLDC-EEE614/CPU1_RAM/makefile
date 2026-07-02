@@ -27,6 +27,7 @@ ORDERED_OBJS += \
 "./source/control_logics.obj" \
 "./source/ecap.obj" \
 "./source/global_definitions.obj" \
+"./source/modbus.obj" \
 "./source/pwm.obj" \
 "./source/sci_com.obj" \
 "../2837xD_RAM_lnk_cpu1.cmd" \
@@ -158,9 +159,9 @@ PROJETO-CTRL-BLDC-EEE614.out: $(OBJS) $(CMD_SRCS) $(LIB_SRCS) $(GEN_CMDS)
 # Other Targets
 clean:
 	-$(RM) $(EXE_OUTPUTS__QUOTED)
-	-$(RM) "main.obj" "TI\F2837xD_Adc.obj" "TI\F2837xD_CodeStartBranch.obj" "TI\F2837xD_DefaultISR.obj" "TI\F2837xD_ECap.obj" "TI\F2837xD_EPwm.obj" "TI\F2837xD_GlobalVariableDefs.obj" "TI\F2837xD_Gpio.obj" "TI\F2837xD_PieCtrl.obj" "TI\F2837xD_PieVect.obj" "TI\F2837xD_SysCtrl.obj" "TI\F2837xD_usDelay.obj" "source\BLDCDriveAndControlProject.obj" "source\BLDC_basis.obj" "source\control_logics.obj" "source\ecap.obj" "source\global_definitions.obj" "source\pwm.obj" "source\sci_com.obj" 
+	-$(RM) "main.obj" "TI\F2837xD_Adc.obj" "TI\F2837xD_CodeStartBranch.obj" "TI\F2837xD_DefaultISR.obj" "TI\F2837xD_ECap.obj" "TI\F2837xD_EPwm.obj" "TI\F2837xD_GlobalVariableDefs.obj" "TI\F2837xD_Gpio.obj" "TI\F2837xD_PieCtrl.obj" "TI\F2837xD_PieVect.obj" "TI\F2837xD_SysCtrl.obj" "TI\F2837xD_usDelay.obj" "source\BLDCDriveAndControlProject.obj" "source\BLDC_basis.obj" "source\control_logics.obj" "source\ecap.obj" "source\global_definitions.obj" "source\modbus.obj" "source\pwm.obj" "source\sci_com.obj" 
 	-$(RM) "TI\F2837xD_Adc.d" "TI\F2837xD_DefaultISR.d" "TI\F2837xD_ECap.d" "TI\F2837xD_EPwm.d" "TI\F2837xD_GlobalVariableDefs.d" "TI\F2837xD_Gpio.d" "TI\F2837xD_PieCtrl.d" "TI\F2837xD_PieVect.d" "TI\F2837xD_SysCtrl.d" 
-	-$(RM) "main.d" "source\BLDCDriveAndControlProject.d" "source\BLDC_basis.d" "source\control_logics.d" "source\ecap.d" "source\global_definitions.d" "source\pwm.d" "source\sci_com.d" 
+	-$(RM) "main.d" "source\BLDCDriveAndControlProject.d" "source\BLDC_basis.d" "source\control_logics.d" "source\ecap.d" "source\global_definitions.d" "source\modbus.d" "source\pwm.d" "source\sci_com.d" 
 	-$(RM) "TI\F2837xD_CodeStartBranch.d" "TI\F2837xD_usDelay.d" 
 	-@echo ' '
 

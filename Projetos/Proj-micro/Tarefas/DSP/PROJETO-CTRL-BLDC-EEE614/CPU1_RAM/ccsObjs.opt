@@ -15,6 +15,7 @@
 "./source/control_logics.obj"
 "./source/ecap.obj"
 "./source/global_definitions.obj"
+"./source/modbus.obj"
 "./source/pwm.obj"
 "./source/sci_com.obj"
 "../2837xD_RAM_lnk_cpu1.cmd"
