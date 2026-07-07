@@ -21,7 +21,7 @@ namespace peripherals {
         // GPIO_SetupPinOptions(gpio_pin, GPIO_INPUT, GPIO_ASYNC);
 
         // 2. On the F28379D, eCAP inputs are strictly routed through the Input X-BAR.
-        // Documentation mapping: eCAP1 = INPUT7, eCAP2 = INPUT8, ..., eCAP4 = INPUT10
+        // Documentation mapping: eCAP1 = INPUT7, eCAP2 = INPUT8, ..., eCAP6 = INPUT12
         switch (module)
         {
             case 1: 
@@ -35,6 +35,12 @@ namespace peripherals {
                 break;
             case 4: 
                 InputXbarRegs.INPUT10SELECT = gpio_pin; 
+                break;
+            case 5: 
+                InputXbarRegs.INPUT11SELECT = gpio_pin; 
+                break;
+            case 6: 
+                InputXbarRegs.INPUT12SELECT = gpio_pin; 
                 break;
             default: 
                 break;

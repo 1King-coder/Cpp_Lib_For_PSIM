@@ -12,9 +12,6 @@ CMD_SRCS += \
 ../2837xD_RAM_lnk_cpu1.cmd \
 ../F2837xD_Headers_nonBIOS_cpu1.cmd 
 
-LIB_SRCS += \
-C:/ti/C2000Ware_26_00_00_00/driverlib/f2837xd/driverlib/ccs/Debug/driverlib.lib 
-
 OBJS += \
 ./main.obj 
 

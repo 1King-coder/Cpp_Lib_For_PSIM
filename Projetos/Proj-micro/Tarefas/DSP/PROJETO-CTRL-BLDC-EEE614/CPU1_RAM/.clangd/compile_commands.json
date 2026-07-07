@@ -98,5 +98,100 @@
       "directory" : "F:/Dev/Cpp_Lib_For_PSIM/Projetos/Proj-micro/Tarefas/DSP/PROJETO-CTRL-BLDC-EEE614/CPU1_RAM",
       "command"   : "clang++ -I\"F:/Dev/Cpp_Lib_For_PSIM/Projetos/Proj-micro/Tarefas/DSP/PROJETO-CTRL-BLDC-EEE614\" -I\"C:/ti/C2000Ware_26_00_00_00/device_support/f2837xd/common/include/\" -I\"C:/ti/C2000Ware_26_00_00_00/device_support/f2837xd/headers/include/\" -I\"F:/Dev/Cpp_Lib_For_PSIM/Projetos/Proj-micro/Tarefas/DSP/PROJETO-CTRL-BLDC-EEE614/device\" -I\"C:/ti/C2000Ware_26_00_00_00/driverlib/f2837xd/driverlib/\" -I\"C:/ti/ccs2051/ccs/tools/compiler/ti-cgt-c2000_25.11.0.LTS/include\" -I\"F:/Dev/Cpp_Lib_For_PSIM/Projetos/Proj-micro/Tarefas/DSP/PROJETO-CTRL-BLDC-EEE614/TI\" -I\"F:/Dev/Cpp_Lib_For_PSIM/Projetos/Proj-micro/Tarefas/DSP/PROJETO-CTRL-BLDC-EEE614/include\" -DDEBUG -D_DUAL_HEADERS -DCPU1 -D_LAUNCHXL_F28379D -xc++",
       "file"      : "F:/Dev/Cpp_Lib_For_PSIM/Projetos/Proj-micro/Tarefas/DSP/PROJETO-CTRL-BLDC-EEE614/source/modbus.cpp"
+   },
+   {
+      "directory" : "F:/Dev/Cpp_Lib_For_PSIM/Projetos/Proj-micro/Tarefas/DSP/PROJETO-CTRL-BLDC-EEE614/CPU1_RAM",
+      "command"   : "clang++ -I\"F:/Dev/Cpp_Lib_For_PSIM/Projetos/Proj-micro/Tarefas/DSP/PROJETO-CTRL-BLDC-EEE614\" -I\"C:/ti/C2000Ware_26_00_00_00/device_support/f2837xd/common/include/\" -I\"C:/ti/C2000Ware_26_00_00_00/device_support/f2837xd/headers/include/\" -I\"F:/Dev/Cpp_Lib_For_PSIM/Projetos/Proj-micro/Tarefas/DSP/PROJETO-CTRL-BLDC-EEE614/device\" -I\"C:/ti/C2000Ware_26_00_00_00/driverlib/f2837xd/driverlib/\" -I\"C:/ti/ccs2051/ccs/tools/compiler/ti-cgt-c2000_25.11.0.LTS/include\" -I\"F:/Dev/Cpp_Lib_For_PSIM/Projetos/Proj-micro/Tarefas/DSP/PROJETO-CTRL-BLDC-EEE614/TI\" -I\"F:/Dev/Cpp_Lib_For_PSIM/Projetos/Proj-micro/Tarefas/DSP/PROJETO-CTRL-BLDC-EEE614/include\" -DDEBUG -D_DUAL_HEADERS -DCPU1 -D_LAUNCHXL_F28379D -xc",
+      "file"      : "F:/Dev/Cpp_Lib_For_PSIM/Projetos/Proj-micro/Tarefas/DSP/PROJETO-CTRL-BLDC-EEE614/TI/F2837xD_CpuTimers.c"
+   },
+   {
+      "directory" : "F:/Dev/Cpp_Lib_For_PSIM/Projetos/Proj-micro/Tarefas/DSP/PROJETO-CTRL-BLDC-EEE614/CPU1_RAM",
+      "command"   : "clang++ -I\"F:/Dev/Cpp_Lib_For_PSIM/Projetos/Proj-micro/Tarefas/DSP/PROJETO-CTRL-BLDC-EEE614\" -I\"C:/ti/C2000Ware_26_00_00_00/device_support/f2837xd/common/include/\" -I\"C:/ti/C2000Ware_26_00_00_00/device_support/f2837xd/headers/include/\" -I\"F:/Dev/Cpp_Lib_For_PSIM/Projetos/Proj-micro/Tarefas/DSP/PROJETO-CTRL-BLDC-EEE614/device\" -I\"C:/ti/C2000Ware_26_00_00_00/driverlib/f2837xd/driverlib/\" -I\"C:/ti/ccs2051/ccs/tools/compiler/ti-cgt-c2000_25.11.0.LTS/include\" -I\"F:/Dev/Cpp_Lib_For_PSIM/Projetos/Proj-micro/Tarefas/DSP/PROJETO-CTRL-BLDC-EEE614/TI\" -I\"F:/Dev/Cpp_Lib_For_PSIM/Projetos/Proj-micro/Tarefas/DSP/PROJETO-CTRL-BLDC-EEE614/include\" -DDEBUG -D_DUAL_HEADERS -DCPU1 -D_LAUNCHXL_F28379D",
+      "file"      : "F:/Dev/Cpp_Lib_For_PSIM/Projetos/Proj-micro/Tarefas/DSP/PROJETO-CTRL-BLDC-EEE614/TI/F2837xD_DBGIER.asm"
+   },
+   {
+      "directory" : "F:/Dev/Cpp_Lib_For_PSIM/Projetos/Proj-micro/Tarefas/DSP/PROJETO-CTRL-BLDC-EEE614/CPU1_RAM",
+      "command"   : "clang++ -I\"F:/Dev/Cpp_Lib_For_PSIM/Projetos/Proj-micro/Tarefas/DSP/PROJETO-CTRL-BLDC-EEE614\" -I\"C:/ti/C2000Ware_26_00_00_00/device_support/f2837xd/common/include/\" -I\"C:/ti/C2000Ware_26_00_00_00/device_support/f2837xd/headers/include/\" -I\"F:/Dev/Cpp_Lib_For_PSIM/Projetos/Proj-micro/Tarefas/DSP/PROJETO-CTRL-BLDC-EEE614/device\" -I\"C:/ti/C2000Ware_26_00_00_00/driverlib/f2837xd/driverlib/\" -I\"C:/ti/ccs2051/ccs/tools/compiler/ti-cgt-c2000_25.11.0.LTS/include\" -I\"F:/Dev/Cpp_Lib_For_PSIM/Projetos/Proj-micro/Tarefas/DSP/PROJETO-CTRL-BLDC-EEE614/TI\" -I\"F:/Dev/Cpp_Lib_For_PSIM/Projetos/Proj-micro/Tarefas/DSP/PROJETO-CTRL-BLDC-EEE614/include\" -DDEBUG -D_DUAL_HEADERS -DCPU1 -D_LAUNCHXL_F28379D -xc",
+      "file"      : "F:/Dev/Cpp_Lib_For_PSIM/Projetos/Proj-micro/Tarefas/DSP/PROJETO-CTRL-BLDC-EEE614/TI/F2837xD_Dma.c"
+   },
+   {
+      "directory" : "F:/Dev/Cpp_Lib_For_PSIM/Projetos/Proj-micro/Tarefas/DSP/PROJETO-CTRL-BLDC-EEE614/CPU1_RAM",
+      "command"   : "clang++ -I\"F:/Dev/Cpp_Lib_For_PSIM/Projetos/Proj-micro/Tarefas/DSP/PROJETO-CTRL-BLDC-EEE614\" -I\"C:/ti/C2000Ware_26_00_00_00/device_support/f2837xd/common/include/\" -I\"C:/ti/C2000Ware_26_00_00_00/device_support/f2837xd/headers/include/\" -I\"F:/Dev/Cpp_Lib_For_PSIM/Projetos/Proj-micro/Tarefas/DSP/PROJETO-CTRL-BLDC-EEE614/device\" -I\"C:/ti/C2000Ware_26_00_00_00/driverlib/f2837xd/driverlib/\" -I\"C:/ti/ccs2051/ccs/tools/compiler/ti-cgt-c2000_25.11.0.LTS/include\" -I\"F:/Dev/Cpp_Lib_For_PSIM/Projetos/Proj-micro/Tarefas/DSP/PROJETO-CTRL-BLDC-EEE614/TI\" -I\"F:/Dev/Cpp_Lib_For_PSIM/Projetos/Proj-micro/Tarefas/DSP/PROJETO-CTRL-BLDC-EEE614/include\" -DDEBUG -D_DUAL_HEADERS -DCPU1 -D_LAUNCHXL_F28379D -xc",
+      "file"      : "F:/Dev/Cpp_Lib_For_PSIM/Projetos/Proj-micro/Tarefas/DSP/PROJETO-CTRL-BLDC-EEE614/TI/F2837xD_EQep.c"
+   },
+   {
+      "directory" : "F:/Dev/Cpp_Lib_For_PSIM/Projetos/Proj-micro/Tarefas/DSP/PROJETO-CTRL-BLDC-EEE614/CPU1_RAM",
+      "command"   : "clang++ -I\"F:/Dev/Cpp_Lib_For_PSIM/Projetos/Proj-micro/Tarefas/DSP/PROJETO-CTRL-BLDC-EEE614\" -I\"C:/ti/C2000Ware_26_00_00_00/device_support/f2837xd/common/include/\" -I\"C:/ti/C2000Ware_26_00_00_00/device_support/f2837xd/headers/include/\" -I\"F:/Dev/Cpp_Lib_For_PSIM/Projetos/Proj-micro/Tarefas/DSP/PROJETO-CTRL-BLDC-EEE614/device\" -I\"C:/ti/C2000Ware_26_00_00_00/driverlib/f2837xd/driverlib/\" -I\"C:/ti/ccs2051/ccs/tools/compiler/ti-cgt-c2000_25.11.0.LTS/include\" -I\"F:/Dev/Cpp_Lib_For_PSIM/Projetos/Proj-micro/Tarefas/DSP/PROJETO-CTRL-BLDC-EEE614/TI\" -I\"F:/Dev/Cpp_Lib_For_PSIM/Projetos/Proj-micro/Tarefas/DSP/PROJETO-CTRL-BLDC-EEE614/include\" -DDEBUG -D_DUAL_HEADERS -DCPU1 -D_LAUNCHXL_F28379D -xc",
+      "file"      : "F:/Dev/Cpp_Lib_For_PSIM/Projetos/Proj-micro/Tarefas/DSP/PROJETO-CTRL-BLDC-EEE614/TI/F2837xD_Emif.c"
+   },
+   {
+      "directory" : "F:/Dev/Cpp_Lib_For_PSIM/Projetos/Proj-micro/Tarefas/DSP/PROJETO-CTRL-BLDC-EEE614/CPU1_RAM",
+      "command"   : "clang++ -I\"F:/Dev/Cpp_Lib_For_PSIM/Projetos/Proj-micro/Tarefas/DSP/PROJETO-CTRL-BLDC-EEE614\" -I\"C:/ti/C2000Ware_26_00_00_00/device_support/f2837xd/common/include/\" -I\"C:/ti/C2000Ware_26_00_00_00/device_support/f2837xd/headers/include/\" -I\"F:/Dev/Cpp_Lib_For_PSIM/Projetos/Proj-micro/Tarefas/DSP/PROJETO-CTRL-BLDC-EEE614/device\" -I\"C:/ti/C2000Ware_26_00_00_00/driverlib/f2837xd/driverlib/\" -I\"C:/ti/ccs2051/ccs/tools/compiler/ti-cgt-c2000_25.11.0.LTS/include\" -I\"F:/Dev/Cpp_Lib_For_PSIM/Projetos/Proj-micro/Tarefas/DSP/PROJETO-CTRL-BLDC-EEE614/TI\" -I\"F:/Dev/Cpp_Lib_For_PSIM/Projetos/Proj-micro/Tarefas/DSP/PROJETO-CTRL-BLDC-EEE614/include\" -DDEBUG -D_DUAL_HEADERS -DCPU1 -D_LAUNCHXL_F28379D -xc",
+      "file"      : "F:/Dev/Cpp_Lib_For_PSIM/Projetos/Proj-micro/Tarefas/DSP/PROJETO-CTRL-BLDC-EEE614/TI/F2837xD_I2C.c"
+   },
+   {
+      "directory" : "F:/Dev/Cpp_Lib_For_PSIM/Projetos/Proj-micro/Tarefas/DSP/PROJETO-CTRL-BLDC-EEE614/CPU1_RAM",
+      "command"   : "clang++ -I\"F:/Dev/Cpp_Lib_For_PSIM/Projetos/Proj-micro/Tarefas/DSP/PROJETO-CTRL-BLDC-EEE614\" -I\"C:/ti/C2000Ware_26_00_00_00/device_support/f2837xd/common/include/\" -I\"C:/ti/C2000Ware_26_00_00_00/device_support/f2837xd/headers/include/\" -I\"F:/Dev/Cpp_Lib_For_PSIM/Projetos/Proj-micro/Tarefas/DSP/PROJETO-CTRL-BLDC-EEE614/device\" -I\"C:/ti/C2000Ware_26_00_00_00/driverlib/f2837xd/driverlib/\" -I\"C:/ti/ccs2051/ccs/tools/compiler/ti-cgt-c2000_25.11.0.LTS/include\" -I\"F:/Dev/Cpp_Lib_For_PSIM/Projetos/Proj-micro/Tarefas/DSP/PROJETO-CTRL-BLDC-EEE614/TI\" -I\"F:/Dev/Cpp_Lib_For_PSIM/Projetos/Proj-micro/Tarefas/DSP/PROJETO-CTRL-BLDC-EEE614/include\" -DDEBUG -D_DUAL_HEADERS -DCPU1 -D_LAUNCHXL_F28379D -xc",
+      "file"      : "F:/Dev/Cpp_Lib_For_PSIM/Projetos/Proj-micro/Tarefas/DSP/PROJETO-CTRL-BLDC-EEE614/TI/F2837xD_Ipc.c"
+   },
+   {
+      "directory" : "F:/Dev/Cpp_Lib_For_PSIM/Projetos/Proj-micro/Tarefas/DSP/PROJETO-CTRL-BLDC-EEE614/CPU1_RAM",
+      "command"   : "clang++ -I\"F:/Dev/Cpp_Lib_For_PSIM/Projetos/Proj-micro/Tarefas/DSP/PROJETO-CTRL-BLDC-EEE614\" -I\"C:/ti/C2000Ware_26_00_00_00/device_support/f2837xd/common/include/\" -I\"C:/ti/C2000Ware_26_00_00_00/device_support/f2837xd/headers/include/\" -I\"F:/Dev/Cpp_Lib_For_PSIM/Projetos/Proj-micro/Tarefas/DSP/PROJETO-CTRL-BLDC-EEE614/device\" -I\"C:/ti/C2000Ware_26_00_00_00/driverlib/f2837xd/driverlib/\" -I\"C:/ti/ccs2051/ccs/tools/compiler/ti-cgt-c2000_25.11.0.LTS/include\" -I\"F:/Dev/Cpp_Lib_For_PSIM/Projetos/Proj-micro/Tarefas/DSP/PROJETO-CTRL-BLDC-EEE614/TI\" -I\"F:/Dev/Cpp_Lib_For_PSIM/Projetos/Proj-micro/Tarefas/DSP/PROJETO-CTRL-BLDC-EEE614/include\" -DDEBUG -D_DUAL_HEADERS -DCPU1 -D_LAUNCHXL_F28379D -xc",
+      "file"      : "F:/Dev/Cpp_Lib_For_PSIM/Projetos/Proj-micro/Tarefas/DSP/PROJETO-CTRL-BLDC-EEE614/TI/F2837xD_Ipc_Driver.c"
+   },
+   {
+      "directory" : "F:/Dev/Cpp_Lib_For_PSIM/Projetos/Proj-micro/Tarefas/DSP/PROJETO-CTRL-BLDC-EEE614/CPU1_RAM",
+      "command"   : "clang++ -I\"F:/Dev/Cpp_Lib_For_PSIM/Projetos/Proj-micro/Tarefas/DSP/PROJETO-CTRL-BLDC-EEE614\" -I\"C:/ti/C2000Ware_26_00_00_00/device_support/f2837xd/common/include/\" -I\"C:/ti/C2000Ware_26_00_00_00/device_support/f2837xd/headers/include/\" -I\"F:/Dev/Cpp_Lib_For_PSIM/Projetos/Proj-micro/Tarefas/DSP/PROJETO-CTRL-BLDC-EEE614/device\" -I\"C:/ti/C2000Ware_26_00_00_00/driverlib/f2837xd/driverlib/\" -I\"C:/ti/ccs2051/ccs/tools/compiler/ti-cgt-c2000_25.11.0.LTS/include\" -I\"F:/Dev/Cpp_Lib_For_PSIM/Projetos/Proj-micro/Tarefas/DSP/PROJETO-CTRL-BLDC-EEE614/TI\" -I\"F:/Dev/Cpp_Lib_For_PSIM/Projetos/Proj-micro/Tarefas/DSP/PROJETO-CTRL-BLDC-EEE614/include\" -DDEBUG -D_DUAL_HEADERS -DCPU1 -D_LAUNCHXL_F28379D -xc",
+      "file"      : "F:/Dev/Cpp_Lib_For_PSIM/Projetos/Proj-micro/Tarefas/DSP/PROJETO-CTRL-BLDC-EEE614/TI/F2837xD_Ipc_Driver_Lite.c"
+   },
+   {
+      "directory" : "F:/Dev/Cpp_Lib_For_PSIM/Projetos/Proj-micro/Tarefas/DSP/PROJETO-CTRL-BLDC-EEE614/CPU1_RAM",
+      "command"   : "clang++ -I\"F:/Dev/Cpp_Lib_For_PSIM/Projetos/Proj-micro/Tarefas/DSP/PROJETO-CTRL-BLDC-EEE614\" -I\"C:/ti/C2000Ware_26_00_00_00/device_support/f2837xd/common/include/\" -I\"C:/ti/C2000Ware_26_00_00_00/device_support/f2837xd/headers/include/\" -I\"F:/Dev/Cpp_Lib_For_PSIM/Projetos/Proj-micro/Tarefas/DSP/PROJETO-CTRL-BLDC-EEE614/device\" -I\"C:/ti/C2000Ware_26_00_00_00/driverlib/f2837xd/driverlib/\" -I\"C:/ti/ccs2051/ccs/tools/compiler/ti-cgt-c2000_25.11.0.LTS/include\" -I\"F:/Dev/Cpp_Lib_For_PSIM/Projetos/Proj-micro/Tarefas/DSP/PROJETO-CTRL-BLDC-EEE614/TI\" -I\"F:/Dev/Cpp_Lib_For_PSIM/Projetos/Proj-micro/Tarefas/DSP/PROJETO-CTRL-BLDC-EEE614/include\" -DDEBUG -D_DUAL_HEADERS -DCPU1 -D_LAUNCHXL_F28379D -xc",
+      "file"      : "F:/Dev/Cpp_Lib_For_PSIM/Projetos/Proj-micro/Tarefas/DSP/PROJETO-CTRL-BLDC-EEE614/TI/F2837xD_Ipc_Driver_Util.c"
+   },
+   {
+      "directory" : "F:/Dev/Cpp_Lib_For_PSIM/Projetos/Proj-micro/Tarefas/DSP/PROJETO-CTRL-BLDC-EEE614/CPU1_RAM",
+      "command"   : "clang++ -I\"F:/Dev/Cpp_Lib_For_PSIM/Projetos/Proj-micro/Tarefas/DSP/PROJETO-CTRL-BLDC-EEE614\" -I\"C:/ti/C2000Ware_26_00_00_00/device_support/f2837xd/common/include/\" -I\"C:/ti/C2000Ware_26_00_00_00/device_support/f2837xd/headers/include/\" -I\"F:/Dev/Cpp_Lib_For_PSIM/Projetos/Proj-micro/Tarefas/DSP/PROJETO-CTRL-BLDC-EEE614/device\" -I\"C:/ti/C2000Ware_26_00_00_00/driverlib/f2837xd/driverlib/\" -I\"C:/ti/ccs2051/ccs/tools/compiler/ti-cgt-c2000_25.11.0.LTS/include\" -I\"F:/Dev/Cpp_Lib_For_PSIM/Projetos/Proj-micro/Tarefas/DSP/PROJETO-CTRL-BLDC-EEE614/TI\" -I\"F:/Dev/Cpp_Lib_For_PSIM/Projetos/Proj-micro/Tarefas/DSP/PROJETO-CTRL-BLDC-EEE614/include\" -DDEBUG -D_DUAL_HEADERS -DCPU1 -D_LAUNCHXL_F28379D -xc",
+      "file"      : "F:/Dev/Cpp_Lib_For_PSIM/Projetos/Proj-micro/Tarefas/DSP/PROJETO-CTRL-BLDC-EEE614/TI/F2837xD_Mcbsp.c"
+   },
+   {
+      "directory" : "F:/Dev/Cpp_Lib_For_PSIM/Projetos/Proj-micro/Tarefas/DSP/PROJETO-CTRL-BLDC-EEE614/CPU1_RAM",
+      "command"   : "clang++ -I\"F:/Dev/Cpp_Lib_For_PSIM/Projetos/Proj-micro/Tarefas/DSP/PROJETO-CTRL-BLDC-EEE614\" -I\"C:/ti/C2000Ware_26_00_00_00/device_support/f2837xd/common/include/\" -I\"C:/ti/C2000Ware_26_00_00_00/device_support/f2837xd/headers/include/\" -I\"F:/Dev/Cpp_Lib_For_PSIM/Projetos/Proj-micro/Tarefas/DSP/PROJETO-CTRL-BLDC-EEE614/device\" -I\"C:/ti/C2000Ware_26_00_00_00/driverlib/f2837xd/driverlib/\" -I\"C:/ti/ccs2051/ccs/tools/compiler/ti-cgt-c2000_25.11.0.LTS/include\" -I\"F:/Dev/Cpp_Lib_For_PSIM/Projetos/Proj-micro/Tarefas/DSP/PROJETO-CTRL-BLDC-EEE614/TI\" -I\"F:/Dev/Cpp_Lib_For_PSIM/Projetos/Proj-micro/Tarefas/DSP/PROJETO-CTRL-BLDC-EEE614/include\" -DDEBUG -D_DUAL_HEADERS -DCPU1 -D_LAUNCHXL_F28379D -xc",
+      "file"      : "F:/Dev/Cpp_Lib_For_PSIM/Projetos/Proj-micro/Tarefas/DSP/PROJETO-CTRL-BLDC-EEE614/TI/F2837xD_Sci.c"
+   },
+   {
+      "directory" : "F:/Dev/Cpp_Lib_For_PSIM/Projetos/Proj-micro/Tarefas/DSP/PROJETO-CTRL-BLDC-EEE614/CPU1_RAM",
+      "command"   : "clang++ -I\"F:/Dev/Cpp_Lib_For_PSIM/Projetos/Proj-micro/Tarefas/DSP/PROJETO-CTRL-BLDC-EEE614\" -I\"C:/ti/C2000Ware_26_00_00_00/device_support/f2837xd/common/include/\" -I\"C:/ti/C2000Ware_26_00_00_00/device_support/f2837xd/headers/include/\" -I\"F:/Dev/Cpp_Lib_For_PSIM/Projetos/Proj-micro/Tarefas/DSP/PROJETO-CTRL-BLDC-EEE614/device\" -I\"C:/ti/C2000Ware_26_00_00_00/driverlib/f2837xd/driverlib/\" -I\"C:/ti/ccs2051/ccs/tools/compiler/ti-cgt-c2000_25.11.0.LTS/include\" -I\"F:/Dev/Cpp_Lib_For_PSIM/Projetos/Proj-micro/Tarefas/DSP/PROJETO-CTRL-BLDC-EEE614/TI\" -I\"F:/Dev/Cpp_Lib_For_PSIM/Projetos/Proj-micro/Tarefas/DSP/PROJETO-CTRL-BLDC-EEE614/include\" -DDEBUG -D_DUAL_HEADERS -DCPU1 -D_LAUNCHXL_F28379D -xc",
+      "file"      : "F:/Dev/Cpp_Lib_For_PSIM/Projetos/Proj-micro/Tarefas/DSP/PROJETO-CTRL-BLDC-EEE614/TI/F2837xD_Spi.c"
+   },
+   {
+      "directory" : "F:/Dev/Cpp_Lib_For_PSIM/Projetos/Proj-micro/Tarefas/DSP/PROJETO-CTRL-BLDC-EEE614/CPU1_RAM",
+      "command"   : "clang++ -I\"F:/Dev/Cpp_Lib_For_PSIM/Projetos/Proj-micro/Tarefas/DSP/PROJETO-CTRL-BLDC-EEE614\" -I\"C:/ti/C2000Ware_26_00_00_00/device_support/f2837xd/common/include/\" -I\"C:/ti/C2000Ware_26_00_00_00/device_support/f2837xd/headers/include/\" -I\"F:/Dev/Cpp_Lib_For_PSIM/Projetos/Proj-micro/Tarefas/DSP/PROJETO-CTRL-BLDC-EEE614/device\" -I\"C:/ti/C2000Ware_26_00_00_00/driverlib/f2837xd/driverlib/\" -I\"C:/ti/ccs2051/ccs/tools/compiler/ti-cgt-c2000_25.11.0.LTS/include\" -I\"F:/Dev/Cpp_Lib_For_PSIM/Projetos/Proj-micro/Tarefas/DSP/PROJETO-CTRL-BLDC-EEE614/TI\" -I\"F:/Dev/Cpp_Lib_For_PSIM/Projetos/Proj-micro/Tarefas/DSP/PROJETO-CTRL-BLDC-EEE614/include\" -DDEBUG -D_DUAL_HEADERS -DCPU1 -D_LAUNCHXL_F28379D -xc",
+      "file"      : "F:/Dev/Cpp_Lib_For_PSIM/Projetos/Proj-micro/Tarefas/DSP/PROJETO-CTRL-BLDC-EEE614/TI/F2837xD_TempSensorConv.c"
+   },
+   {
+      "directory" : "F:/Dev/Cpp_Lib_For_PSIM/Projetos/Proj-micro/Tarefas/DSP/PROJETO-CTRL-BLDC-EEE614/CPU1_RAM",
+      "command"   : "clang++ -I\"F:/Dev/Cpp_Lib_For_PSIM/Projetos/Proj-micro/Tarefas/DSP/PROJETO-CTRL-BLDC-EEE614\" -I\"C:/ti/C2000Ware_26_00_00_00/device_support/f2837xd/common/include/\" -I\"C:/ti/C2000Ware_26_00_00_00/device_support/f2837xd/headers/include/\" -I\"F:/Dev/Cpp_Lib_For_PSIM/Projetos/Proj-micro/Tarefas/DSP/PROJETO-CTRL-BLDC-EEE614/device\" -I\"C:/ti/C2000Ware_26_00_00_00/driverlib/f2837xd/driverlib/\" -I\"C:/ti/ccs2051/ccs/tools/compiler/ti-cgt-c2000_25.11.0.LTS/include\" -I\"F:/Dev/Cpp_Lib_For_PSIM/Projetos/Proj-micro/Tarefas/DSP/PROJETO-CTRL-BLDC-EEE614/TI\" -I\"F:/Dev/Cpp_Lib_For_PSIM/Projetos/Proj-micro/Tarefas/DSP/PROJETO-CTRL-BLDC-EEE614/include\" -DDEBUG -D_DUAL_HEADERS -DCPU1 -D_LAUNCHXL_F28379D -xc",
+      "file"      : "F:/Dev/Cpp_Lib_For_PSIM/Projetos/Proj-micro/Tarefas/DSP/PROJETO-CTRL-BLDC-EEE614/TI/F2837xD_Upp.c"
+   },
+   {
+      "directory" : "F:/Dev/Cpp_Lib_For_PSIM/Projetos/Proj-micro/Tarefas/DSP/PROJETO-CTRL-BLDC-EEE614/CPU1_RAM",
+      "command"   : "clang++ -I\"F:/Dev/Cpp_Lib_For_PSIM/Projetos/Proj-micro/Tarefas/DSP/PROJETO-CTRL-BLDC-EEE614\" -I\"C:/ti/C2000Ware_26_00_00_00/device_support/f2837xd/common/include/\" -I\"C:/ti/C2000Ware_26_00_00_00/device_support/f2837xd/headers/include/\" -I\"F:/Dev/Cpp_Lib_For_PSIM/Projetos/Proj-micro/Tarefas/DSP/PROJETO-CTRL-BLDC-EEE614/device\" -I\"C:/ti/C2000Ware_26_00_00_00/driverlib/f2837xd/driverlib/\" -I\"C:/ti/ccs2051/ccs/tools/compiler/ti-cgt-c2000_25.11.0.LTS/include\" -I\"F:/Dev/Cpp_Lib_For_PSIM/Projetos/Proj-micro/Tarefas/DSP/PROJETO-CTRL-BLDC-EEE614/TI\" -I\"F:/Dev/Cpp_Lib_For_PSIM/Projetos/Proj-micro/Tarefas/DSP/PROJETO-CTRL-BLDC-EEE614/include\" -DDEBUG -D_DUAL_HEADERS -DCPU1 -D_LAUNCHXL_F28379D -xc",
+      "file"      : "F:/Dev/Cpp_Lib_For_PSIM/Projetos/Proj-micro/Tarefas/DSP/PROJETO-CTRL-BLDC-EEE614/TI/F2837xD_can.c"
+   },
+   {
+      "directory" : "F:/Dev/Cpp_Lib_For_PSIM/Projetos/Proj-micro/Tarefas/DSP/PROJETO-CTRL-BLDC-EEE614/CPU1_RAM",
+      "command"   : "clang++ -I\"F:/Dev/Cpp_Lib_For_PSIM/Projetos/Proj-micro/Tarefas/DSP/PROJETO-CTRL-BLDC-EEE614\" -I\"C:/ti/C2000Ware_26_00_00_00/device_support/f2837xd/common/include/\" -I\"C:/ti/C2000Ware_26_00_00_00/device_support/f2837xd/headers/include/\" -I\"F:/Dev/Cpp_Lib_For_PSIM/Projetos/Proj-micro/Tarefas/DSP/PROJETO-CTRL-BLDC-EEE614/device\" -I\"C:/ti/C2000Ware_26_00_00_00/driverlib/f2837xd/driverlib/\" -I\"C:/ti/ccs2051/ccs/tools/compiler/ti-cgt-c2000_25.11.0.LTS/include\" -I\"F:/Dev/Cpp_Lib_For_PSIM/Projetos/Proj-micro/Tarefas/DSP/PROJETO-CTRL-BLDC-EEE614/TI\" -I\"F:/Dev/Cpp_Lib_For_PSIM/Projetos/Proj-micro/Tarefas/DSP/PROJETO-CTRL-BLDC-EEE614/include\" -DDEBUG -D_DUAL_HEADERS -DCPU1 -D_LAUNCHXL_F28379D -xc",
+      "file"      : "F:/Dev/Cpp_Lib_For_PSIM/Projetos/Proj-micro/Tarefas/DSP/PROJETO-CTRL-BLDC-EEE614/TI/F2837xD_sci_io.c"
+   },
+   {
+      "directory" : "F:/Dev/Cpp_Lib_For_PSIM/Projetos/Proj-micro/Tarefas/DSP/PROJETO-CTRL-BLDC-EEE614/CPU1_RAM",
+      "command"   : "clang++ -I\"F:/Dev/Cpp_Lib_For_PSIM/Projetos/Proj-micro/Tarefas/DSP/PROJETO-CTRL-BLDC-EEE614\" -I\"C:/ti/C2000Ware_26_00_00_00/device_support/f2837xd/common/include/\" -I\"C:/ti/C2000Ware_26_00_00_00/device_support/f2837xd/headers/include/\" -I\"F:/Dev/Cpp_Lib_For_PSIM/Projetos/Proj-micro/Tarefas/DSP/PROJETO-CTRL-BLDC-EEE614/device\" -I\"C:/ti/C2000Ware_26_00_00_00/driverlib/f2837xd/driverlib/\" -I\"C:/ti/ccs2051/ccs/tools/compiler/ti-cgt-c2000_25.11.0.LTS/include\" -I\"F:/Dev/Cpp_Lib_For_PSIM/Projetos/Proj-micro/Tarefas/DSP/PROJETO-CTRL-BLDC-EEE614/TI\" -I\"F:/Dev/Cpp_Lib_For_PSIM/Projetos/Proj-micro/Tarefas/DSP/PROJETO-CTRL-BLDC-EEE614/include\" -DDEBUG -D_DUAL_HEADERS -DCPU1 -D_LAUNCHXL_F28379D -xc",
+      "file"      : "F:/Dev/Cpp_Lib_For_PSIM/Projetos/Proj-micro/Tarefas/DSP/PROJETO-CTRL-BLDC-EEE614/TI/F2837xD_sdfm_drivers.c"
+   },
+   {
+      "directory" : "F:/Dev/Cpp_Lib_For_PSIM/Projetos/Proj-micro/Tarefas/DSP/PROJETO-CTRL-BLDC-EEE614/CPU1_RAM",
+      "command"   : "clang++ -I\"F:/Dev/Cpp_Lib_For_PSIM/Projetos/Proj-micro/Tarefas/DSP/PROJETO-CTRL-BLDC-EEE614\" -I\"C:/ti/C2000Ware_26_00_00_00/device_support/f2837xd/common/include/\" -I\"C:/ti/C2000Ware_26_00_00_00/device_support/f2837xd/headers/include/\" -I\"F:/Dev/Cpp_Lib_For_PSIM/Projetos/Proj-micro/Tarefas/DSP/PROJETO-CTRL-BLDC-EEE614/device\" -I\"C:/ti/C2000Ware_26_00_00_00/driverlib/f2837xd/driverlib/\" -I\"C:/ti/ccs2051/ccs/tools/compiler/ti-cgt-c2000_25.11.0.LTS/include\" -I\"F:/Dev/Cpp_Lib_For_PSIM/Projetos/Proj-micro/Tarefas/DSP/PROJETO-CTRL-BLDC-EEE614/TI\" -I\"F:/Dev/Cpp_Lib_For_PSIM/Projetos/Proj-micro/Tarefas/DSP/PROJETO-CTRL-BLDC-EEE614/include\" -DDEBUG -D_DUAL_HEADERS -DCPU1 -D_LAUNCHXL_F28379D -xc",
+      "file"      : "F:/Dev/Cpp_Lib_For_PSIM/Projetos/Proj-micro/Tarefas/DSP/PROJETO-CTRL-BLDC-EEE614/TI/F2837xD_struct.c"
    }
 ]

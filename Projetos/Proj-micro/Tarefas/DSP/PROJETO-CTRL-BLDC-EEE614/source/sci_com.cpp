@@ -52,7 +52,7 @@ void scia_fifo_init(int receivedDataSize)
     SciaRegs.SCIFFRX.bit.RXFIFORESET = 0; 
     SciaRegs.SCIFFRX.bit.RXFIFORESET = 1; 
     SciaRegs.SCIFFRX.bit.RXFFIENA = 1;    
-    SciaRegs.SCIFFRX.bit.RXFFIL = receivedDataSize;      // NÍVEL DE INTERRUPÇÃO: Dispara a ISR quando chegar a 4 bytes (Tamanho de 1 float)
+    SciaRegs.SCIFFRX.bit.RXFFIL = receivedDataSize; // NÍVEL DE INTERRUPÇÃO
 
     SciaRegs.SCIFFCT.all = 0x0;
 }

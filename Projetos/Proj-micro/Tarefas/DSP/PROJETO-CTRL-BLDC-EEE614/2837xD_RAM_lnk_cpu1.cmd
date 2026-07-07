@@ -94,7 +94,7 @@ SECTIONS
    .pinit           : > RAMM0,     PAGE = 0
    .ebss            : > RAMLS5,    PAGE = 1
    .econst          : > RAMLS5,    PAGE = 1
-   .esysmem         : > RAMLS5,    PAGE = 1
+   .esysmem    : > RAMGS0,       PAGE = 1
 #endif
 
    Filter_RegsFile  : > RAMGS0,    PAGE = 1

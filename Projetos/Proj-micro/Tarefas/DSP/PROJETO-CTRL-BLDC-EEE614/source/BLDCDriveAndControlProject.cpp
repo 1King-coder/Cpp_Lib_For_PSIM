@@ -8,7 +8,7 @@
 
 
 namespace project {
-    BLDCDriveAndControlProject::BLDC_input_data circuit_data;
+    BLDCDriveAndControlProject::BLDC_input_data measures;
     BLDCDriveAndControlProject::DSP_Response response;
     float i_in_ref = 0;
     float w_m_x1 = 0;
@@ -17,6 +17,7 @@ namespace project {
     float i_in_y1 = 0;
     peripherals::PwmProj pwm;
     peripherals::EcapProj ecap;
+    peripherals::ModBusProtocol mb;
     Uint32 captured_ticks = 0;
     float sim_hall_sensor_freq_read = 0;
     float w_m_rpm = 0;
@@ -51,14 +52,28 @@ namespace project {
     void BLDCDriveAndControlProject::loop () 
     {
         
-        for (;;) {
+        for (;;) 
+        {
+            if (this->mb.frameComplete == 1)
+            {
+                this->mb.processModbusFrame();
+                
+                this->mb.rxCount = 0;
+                this->mb.frameComplete = 0;
 
+                this->measures.i_in_feedback = (float) this->mb.holdingRegisters[0] / 100;
+                this->measures.w_m_feedback = (float) this->mb.holdingRegisters[1] / 100;
+                this->measures.w_m_ref = (float) this->mb.holdingRegisters[2] / 100;
+                this->w_m_pi_control();
+                this->mb.holdingRegisters[3] = (Uint16) (this->results.ref * 100);
+                this->mb.holdingRegisters[4] = (Uint16) (this->results.w_m_calc * 100);
+            }
         }
     }
 
-    void BLDCDriveAndControlProject::w_m_pi_control (BLDCDriveAndControlProject::BLDC_input_data *data, float *ref) 
+    void BLDCDriveAndControlProject::w_m_pi_control () 
     {
-        float w_m_err = data->w_m_ref - this->w_m_rpm;
+        float w_m_err = this->measures.w_m_ref - this->w_m_rpm;
         float i_in_ref;
         PI_CTS w_pi_cts, i_in_pi_cts;
 
@@ -72,11 +87,11 @@ namespace project {
         i_in_pi_cts.kp = KP_I;
         i_in_pi_cts.ki = KI_I;
 
-        PI(w_pi_cts, &i_in_ref, w_m_err, &w_m_y1, &w_m_x1, SAMPLE_FREQ);
+        PI(w_pi_cts, &i_in_ref, w_m_err, &w_m_y1, &w_m_x1, SAMPLE_PERIOD);
 
-        float i_in_err = i_in_ref - data->i_in_feedback;
+        float i_in_err = i_in_ref - this->measures.i_in_feedback;
 
-        PI(i_in_pi_cts, ref, i_in_err, &i_in_y1, &i_in_x1, SAMPLE_FREQ);
+        PI(i_in_pi_cts, &this->results.ref, i_in_err, &i_in_y1, &i_in_x1, SAMPLE_PERIOD);
     }
 
     float BLDCDriveAndControlProject::calc_simulated_hall_sensor_freq (float w_m) 
@@ -95,7 +110,7 @@ namespace project {
         this->pwm.config_pwm_divs(1, 7, 7);
         this->pwm.set_switching_frequency_Hz(1, 0);
         this->pwm.config_pwm_divs(2, 1, 0);
-        this->pwm.set_switching_frequency_Hz(2, 1e3);
+        this->pwm.set_switching_frequency_Hz(2, 20e3);
         this->pwm.init();
         this->pwm.set_gpio(1);
         this->pwm.set_gpio(2);
@@ -107,6 +122,11 @@ namespace project {
     {
         this->ecap.set_gpio(1, 15);
         this->ecap.init_delta_mode(1);
+    }
+
+    void BLDCDriveAndControlProject::setup_mb (void) 
+    {
+        this->mb.init_T35_Timer();
     }
     
     

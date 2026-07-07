@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<UnitySession version="256">
+  <PROPERTY name="CurrentPath" value="F:/Dev/Cpp_Lib_For_PSIM/python/"/>
+  <PROPERTY name="OldPath" value="F:/Dev/Cpp_Lib_For_PSIM/python/"/>
+  <PROPERTY name="IsRelativePath" value="1"/>
+  <OBJECT type="fwg::Project">
+    <PROPERTY name="Name" value="Projeto"/>
+    <PROPERTY name="Layout" value="0"/>
+    <CLIENT type="Compose" name="Project">
+    </CLIENT>
+    <OBJECT type="fwg::ClientObject">
+      <PROPERTY name="Name" value="Project"/>
+      <PROPERTY name="Entry Function" value=""/>
+      <PROPERTY name="Entry File" value=""/>
+      <PROPERTY name="Layout" value="2"/>
+      <PROPERTY name="Plot Rows" value="0"/>
+      <PROPERTY name="Plot Columns" value="0"/>
+      <PROPERTY name="Plot Layout" value="0"/>
+      <Includes></Includes>
+      <Watches>
+        <PROPERTY name="Watch Items" value=""/>
+      </Watches>
+      <OBJECT type="FilesFolder">
+        <PROPERTY name="Name" value="Files"/>
+      </OBJECT>
+      <OBJECT type="PlotsFolder">
+        <PROPERTY name="Name" value="Plots"/>
+        <OBJECT type="PlotsFolder">
+          <PROPERTY name="Name" value="oml"/>
+        </OBJECT>
+        <OBJECT type="PlotsFolder">
+          <PROPERTY name="Name" value="python"/>
+          <OBJECT type="PlotsFolder">
+            <PROPERTY name="Name" value="Matplotlib Plots"/>
+          </OBJECT>
+          <OBJECT type="PlotsFolder">
+            <PROPERTY name="Name" value="Plotly Plots"/>
+          </OBJECT>
+        </OBJECT>
+      </OBJECT>
+    </OBJECT>
+  </OBJECT>
+</UnitySession>

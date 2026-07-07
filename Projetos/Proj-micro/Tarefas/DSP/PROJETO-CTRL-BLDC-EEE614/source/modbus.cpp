@@ -1,71 +1,149 @@
 #include "modbus.h"
 
+namespace peripherals 
+{
+    Uint16 holdingRegisters[NUM_HOLDING_REGS] = {0,0,0,0,0,0,0,0,0,0};
+    Uint16 rxBuffer[256];
+    Uint16 rxCount = 0;
+    Uint16 frameComplete = 0;
 
-uint16_t calculate_CRC (uint8_t *buffer, uint8_t length) {
-    uint16_t crc = 0xFFFF;
-    for (int pos = 0; pos < length; pos++) {
-        crc ^= (uint16_t) buffer[pos];
-        for (int i = 8; i != 0; i--) {
-            if ((crc & 0x0001) != 0) {
-                crc >>= 1;
-                crc ^= 0xA001;
-            } else {
-                crc >>= 1;
+    ModBusProtocol::ModBusProtocol (void) 
+    {
+
+    }
+
+    Uint16 ModBusProtocol::calculate_CRC (Uint16 *buffer, Uint16 length) 
+    {
+        Uint16 crc = 0xFFFF;
+        for (int pos = 0; pos < length; pos++) {
+            crc ^= (Uint16) buffer[pos];
+            for (int i = 8; i != 0; i--) {
+                if ((crc & 0x0001) != 0) {
+                    crc >>= 1;
+                    crc ^= 0xA001;
+                } else {
+                    crc >>= 1;
+                }
             }
         }
-    }
-    return crc;
-}
-
-uint16_t HoldingRegisters[NUM_HOLDING_REGS];
-
-void Process_Modbus(void) {
-    if (!FrameReceived) return;
-
-    // 1. Verify Address
-    if (RxBuffer[0] != SLAVE_ADDRESS) {
-        RxIndex = 0;
-        FrameReceived = false;
-        return;
+        return crc;
     }
 
-    // 2. Verify CRC
-    uint16_t received_crc = (RxBuffer[RxIndex - 1] << 8) | RxBuffer[RxIndex - 2];
-    uint16_t calculated_crc = Calculate_CRC(RxBuffer, RxIndex - 2);
+    void ModBusProtocol::init_T35_Timer(void)
+    {
+        InitCpuTimers();
+        ConfigCpuTimer(&CpuTimer0, 200, T35_TIMEOUT_US); 
+        CpuTimer0Regs.TCR.bit.TSS = 1; // Stop timer initially
+    }
 
-    if (received_crc == calculated_crc) {
-        uint8_t function_code = RxBuffer[1];
-        uint8_t tx_buffer[32];
-        uint8_t tx_len = 0;
+    
 
-        if (function_code == 0x03) { // Read Holding Registers
-            uint16_t start_addr = (RxBuffer[2] << 8) | RxBuffer[3];
-            uint16_t num_regs = (RxBuffer[4] << 8) | RxBuffer[5];
+    void ModBusProtocol::processModbusFrame (void)
+    {
+        // 1. Verify Slave ID
+        if (this->rxBuffer[0] != MODBUS_SLAVE_ID) return;
 
-            tx_buffer[tx_len++] = SLAVE_ADDRESS;
-            tx_buffer[tx_len++] = function_code;
-            tx_buffer[tx_len++] = num_regs * 2; // Byte count
+        // 2. Verify CRC Integrity
+        Uint16 receivedCRC = (this->rxBuffer[this->rxCount - 1] << 8) | this->rxBuffer[this->rxCount - 2];
+        Uint16 calculatedCRC = this->calculate_CRC(this->rxBuffer, this->rxCount - 2);
+        if (receivedCRC != calculatedCRC) return;
 
-            for (int i = 0; i < num_regs; i++) {
-                uint16_t reg_val = HoldingRegisters[start_addr + i];
-                tx_buffer[tx_len++] = (reg_val >> 8) & 0xFF; // High byte
-                tx_buffer[tx_len++] = reg_val & 0xFF;        // Low byte
+        // 3. Process Function Codes
+        Uint16 functionCode = this->rxBuffer[1];
+        Uint16 txBuffer[256];
+        Uint16 txLen = 0;
+
+        switch (functionCode)
+        {
+            case 0x03: // Read Holding Registers
+            {
+                Uint16 startAddr = (this->rxBuffer[2] << 8) | this->rxBuffer[3];
+                Uint16 quantity = (this->rxBuffer[4] << 8) | this->rxBuffer[5];
+
+                if ((startAddr + quantity) > 10) return; // Illegal Data Address protection
+
+                txBuffer[0] = MODBUS_SLAVE_ID;
+                txBuffer[1] = 0x03;
+                txBuffer[2] = quantity * 2; // Byte count
+                txLen = 3;
+
+                for (int i = 0; i < quantity; i++) {
+                    txBuffer[txLen++] = (this->holdingRegisters[startAddr + i] >> 8) & 0xFF; // High Byte
+                    txBuffer[txLen++] = this->holdingRegisters[startAddr + i] & 0xFF;        // Low Byte
+                }
+                break;
             }
+            case 0x06: // Write Single Register
+            {
+                Uint16 regAddr = (this->rxBuffer[2] << 8) | this->rxBuffer[3];
+                Uint16 regValue = (this->rxBuffer[4] << 8) | this->rxBuffer[5];
 
-            // Append CRC
-            uint16_t crc = Calculate_CRC(tx_buffer, tx_len);
-            tx_buffer[tx_len++] = crc & 0xFF;
-            tx_buffer[tx_len++] = (crc >> 8) & 0xFF;
+                if (regAddr > 9) return; // Illegal Data Address protection
 
-            // Send via SCI
-            for (int i = 0; i < tx_len; i++) {
-                while (SciaRegs.SCICTL2.bit.TXRDY == 0);
-                SciaRegs.SCITXBUF.all = tx_buffer[i];
+                this->holdingRegisters[regAddr] = regValue; // Apply change to DSP memory
+
+                // Response to 0x06 is simply an exact echo of the request
+                for (int i = 0; i < 6; i++) {
+                    txBuffer[i] = this->rxBuffer[i];
+                }
+                txLen = 6;
+                break;
             }
+            case 0x10: // Write multiple Registers
+            {
+                Uint16 startAddr = (this->rxBuffer[2] << 8) | this->rxBuffer[3];
+                Uint16 quantity  = (this->rxBuffer[4] << 8) | this->rxBuffer[5];
+                Uint16 byteCount = this->rxBuffer[6];
+
+                // 2. Safety Checks
+                // Ensure they aren't trying to write past the end of your array
+                if ((startAddr + quantity) > NUM_HOLDING_REGS) return; 
+                
+                // Ensure the byte count matches the quantity of registers (2 bytes per reg)
+                if (byteCount != (quantity * 2)) return;
+
+                // 3. Write the data into the holding registers
+                // The actual data starts at rxBuffer[7]
+                int dataIndex = 7;
+                for (int i = 0; i < quantity; i++) 
+                {
+                    // Reconstruct the 16-bit value from the two 8-bit bytes
+                    Uint16 regValue = (this->rxBuffer[dataIndex] << 8) | this->rxBuffer[dataIndex + 1];
+                    
+                    // Store it in the DSP's memory
+                    this->holdingRegisters[startAddr + i] = regValue;
+                    
+                    // Move to the next pair of bytes
+                    dataIndex += 2;
+                }
+
+                // 4. Format the Response (Echo the first 6 bytes)
+                for (int i = 0; i < 6; i++) {
+                    txBuffer[i] = this->rxBuffer[i];
+                }
+                txLen = 6;
+                break;
+            }
+            default:
+                return; // Unsupported Function Code
+        }
+
+        // Append CRC to the outgoing response and transmit
+        Uint16 txCRC = this->calculate_CRC(txBuffer, txLen);
+        txBuffer[txLen++] = txCRC & 0xFF;        // Low Byte
+        txBuffer[txLen++] = (txCRC >> 8) & 0xFF; // High Byte
+
+        this->sendModbusResponse(txBuffer, txLen);
+    }
+
+    void ModBusProtocol::sendModbusResponse(Uint16 *data, Uint16 length)
+    {
+        for (int i = 0; i < length; i++)
+        {
+            while (SciaRegs.SCIFFTX.bit.TXFFST >= 16) {}
+            SciaRegs.SCITXBUF.all = data[i] & 0xFF;
         }
     }
 
-    // Reset for next frame
-    RxIndex = 0;
-    FrameReceived = false;
+
 }

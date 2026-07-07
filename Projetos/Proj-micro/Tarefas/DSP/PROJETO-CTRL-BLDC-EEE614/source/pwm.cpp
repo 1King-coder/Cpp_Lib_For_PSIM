@@ -25,11 +25,8 @@ namespace peripherals {
 
         for (unsigned int moduleIndex = 0; moduleIndex < NUMBER_OF_PWM_MODULES; moduleIndex++)
         {
-
             this->time_base_clock_Hz[moduleIndex] = DSP_CLOCK;
             this->pwmTimeBasePeriod[moduleIndex] = 0;
-                    // / powi(2.0f, this->ePwmRegisters[moduleIndex]->TBCTL.bit.HSPCLKDIV)
-                    // / powi(2.0f, this->ePwmRegisters[moduleIndex]->TBCTL.bit.CLKDIV);
         }
     }
 
